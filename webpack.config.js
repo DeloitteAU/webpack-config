@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('[name].css');
 
 module.exports = {
@@ -39,6 +40,7 @@ module.exports = {
 		}]
 	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),
 		extractCSS
 	]
 };
