@@ -2,7 +2,7 @@
   "name": "webpack-shared",
   "version": "1.0.0",
   "description": "A collection of packages for building",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
