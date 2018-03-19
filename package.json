@@ -1,0 +1,27 @@
+{
+  "name": "webpack-shared",
+  "version": "1.0.0",
+  "description": "A collection of packages for building",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@hub.deloittedigital.com.au:7999/~kestreet_deloitte.com.au/webpack-shared.git"
+  },
+  "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-serve": "^0.2.0"
+  }
+}
