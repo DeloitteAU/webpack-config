@@ -1,8 +1,8 @@
 # DD FED build
 
-This package defines a collection of build tools and a base Webpack configuration file. Rather than selecting and configuring many different npm dependencies to your project, you can simply add this one, and get up and running with Webpack in a way that is consistent with other Deloitte Digital FED projects.
+This package is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration. Rather than installing and configuring many different npm dependencies on your project, you can simply add this one, and get up and running with Webpack in a way that is consistent with other Deloitte Digital FED projects.
 
-It is not yet configured for React or Vue.js projects.
+It is not yet configured for React or Vue.js projects. We will set up Lerna to publish packages optimised for projects running on these frameworks. Other TODO tasks are listed at the bottom of the page.
 
 ## Example repositories using this configuration
 
@@ -94,6 +94,7 @@ To generate an artefact for production, run `npm run build`.
 
 ## To do
 
+- Add the fast version of source maps for development
 - Add the necessary packages for React and Vue.js
 - Add linting tools, but make sure they only run on build, not watch
 - Publish to npm
