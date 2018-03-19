@@ -1,14 +1,11 @@
 {
-  "name": "webpack-shared",
+  "name": "dd-fed-build",
   "version": "1.0.0",
-  "description": "A collection of packages for building",
+  "description": "Default Webpack configuration for Deloitte Digital FED projects",
   "main": "webpack.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "ssh://git@hub.deloittedigital.com.au:7999/~kestreet_deloitte.com.au/webpack-shared.git"
+    "url": "ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build.git"
   },
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
