@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 const extractCSS = new ExtractTextPlugin('[name].css');
 
 module.exports = {
@@ -16,8 +17,8 @@ module.exports = {
 						use: [
 							'style-loader',
 							'css-loader',
-							'sass-loader'
-						]
+							'sass-loader',
+						],
 					}, {
 						// Otherwise, extract the CSS into its own file
 						use: extractCSS.extract({
@@ -25,19 +26,19 @@ module.exports = {
 								{
 									loader: 'css-loader',
 									options: {
-										sourceMap: true
-									}
+										sourceMap: true,
+									},
 								}, {
 									loader: 'sass-loader',
 									options: {
-										sourceMap: true
-									}
-								}
+										sourceMap: true,
+									},
+								},
 							],
-							fallback: 'style-loader'
-						})
-					}
-				]
+							fallback: 'style-loader',
+						}),
+					},
+				],
 			},
 			{
 				test: /\.js$/,
@@ -46,15 +47,15 @@ module.exports = {
 					loader: 'babel-loader',
 					options: {
 						presets: [
-							'env'
-						]
-					}
-				}
-			}
-		]
+							'env',
+						],
+					},
+				},
+			},
+		],
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
-		extractCSS
-	]
+		extractCSS,
+	],
 };
