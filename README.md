@@ -2,12 +2,18 @@
 
 This project is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration. Rather than installing and configuring many different npm dependencies on your project, you can simply add this one, and get up and running with Webpack in a way that is consistent with other Deloitte Digital FED projects.
 
-It is not yet configured for React or Vue.js projects. We will set up Lerna to publish packages optimised for projects running on these frameworks. Other TODO tasks are listed at the bottom of the page.
+The following project types are supported:
+
+- Web standards projects
+- Vue.js projects
+
+Support for React has not yet been added. Other TODO tasks are listed at the bottom of the page.
 
 ## Example repositories using this configuration
 
 - [DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse)
 - [DD Offscreen](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-offscreen/browse)
+- [Vue.js demo](https://hub.deloittedigital.com.au/stash/projects/FED/repos/vuejs-demo/browse)
 
 ## Packages included with DD FED build
 
@@ -35,18 +41,33 @@ It is not yet configured for React or Vue.js projects. We will set up Lerna to p
 | **webpack-cli**                 | The command line interface for Webpack allows us to enter Webpack commands into our project's `package.json` file.                                                                                                                                         |
 | **webpack-serve**               | A lean, modern, and flexible Webpack development server which supports live reloading.                                                                                                                                                                     |
 
+### Vue.js packages
+
+| Name                            | Description                                                                                                                                                                                                                                                |
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **vue-loader**                  | A Webpack loader which allows us to use `*.vue` files.                                                                                                                                                                                                     |
+| **vue-template-compiler**       | Used to pre-compile Vue templates into render functions to avoid runtime-compilation overhead and CSP restrictions.                                                                                                                                        |
+
 ## Installation
 
 1. Add the package as a **dev dependency**, by running:
+
+**Web standards projects**
 
 ```bash
 npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build --save-dev
 ```
 
+**Vue.js projects**
+
+```bash
+npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build-vuejs --save-dev
+```
+
 2. Add a `webpack.config.js` file, which imports the default config file from **DD FED build** and extends it, specifying entry points:
 
 ```js
-const config = require('dd-fed-build');
+const config = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
 
 config.entry = {
 	main: [
@@ -113,13 +134,21 @@ module.exports = {
 
 ## Usage
 
-To run a local development server, rebuild bundles when the source files change, and live-reload in the browser, run `npm run dev`.
+To run a local development server, rebuild bundles when the source files change, and live-reload in the browser, run:
 
-To generate an artefact for production, run `npm run build`.
+```bash
+npm run dev
+```
+
+To generate an artefact for production, run:
+
+```bash
+npm run build
+```
 
 
 ## To do
 
 - Add the fast version of source maps for development
-- Add the necessary packages for React and Vue.js
+- Add the necessary packages for React
 - Publish to npm
