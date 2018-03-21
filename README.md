@@ -149,6 +149,5 @@ npm run build
 
 ## To do
 
-- Add the fast version of source maps for development
-- Add the necessary packages for React
 - Publish to npm
+- Add the necessary packages for React
