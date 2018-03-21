@@ -5,6 +5,7 @@ const cssLoader = {
 	loader: 'css-loader',
 	options: {
 		sourceMap: true,
+		minimize: !process.env.WEBPACK_SERVE,
 	},
 };
 
