@@ -1,14 +1,5 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const extractCSS = new ExtractTextPlugin('[name].css');
-
-const styleLoader = {
-	loader: 'style-loader',
-	options: {
-		sourceMap: true,
-	},
-};
 
 const cssLoader = {
 	loader: 'css-loader',
@@ -36,23 +27,21 @@ module.exports = {
 						// If the extension is .js.scss, leave the CSS embedded in the JS file
 						test: /\.js\.scss$/,
 						use: [
-							styleLoader,
+							'style-loader',
 							cssLoader,
 							sassLoader,
 						],
 					}, {
 						// Otherwise, extract the CSS into its own file
-						use: extractCSS.extract({
-							use: [
-								cssLoader,
-								sassLoader,
-							],
-							fallback: styleLoader,
-						}),
+						// This is not used in development mode because it is not compatible with fast '#eval-source-map'
+						use: [
+							MiniCssExtractPlugin.loader,
+							cssLoader,
+							sassLoader,
+						],
 					},
 				],
-			},
-			{
+			}, {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
@@ -69,6 +58,9 @@ module.exports = {
 	plugins: [
 		// Clean the 'dist' folder before building
 		new CleanWebpackPlugin(['dist']),
-		extractCSS,
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+			chunkFilename: '[id].css',
+		}),
 	],
 };
