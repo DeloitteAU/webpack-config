@@ -186,4 +186,43 @@ npm run stylelint
 
 ## Known issues
 
-- Source maps for SCSS files embedded inside JS files have incorrect URLs https://github.com/webpack-contrib/css-loader/issues/652
+**Incorrect URLs in some source maps**
+
+Source maps for SCSS files embedded inside JS files have incorrect URLs https://github.com/webpack-contrib/css-loader/issues/652
+
+**Webpack generates extraneous JavaScript for CSS files**
+
+If you define an entry with CSS but no JavaScript, Webpack will still output a (useless) JavaScript file for the entry along with the CSS. For example if you did this:
+
+```js
+config.entry = {
+	main: [
+		'./script.js',
+	],
+	style: [
+		'./style.scss', // Not recommended to have an entry with just CSS
+	],
+};
+```
+
+Then three files would be generated:
+
+- `main.js` (good)
+- `style.css` (good)
+- `style.js` (useless)
+
+To avoid this it is recommended to attach your CSS to an entry that also has JavaScript. For example:
+
+```js
+config.entry = {
+	main: [
+		'./script.js',
+		'./style.scss',
+	],
+};
+```
+
+This will only generate two files:
+
+- `main.js` (good)
+- `main.css` (good)
