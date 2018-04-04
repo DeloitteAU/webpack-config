@@ -154,6 +154,8 @@ To generate an artefact for production, run:
 npm run build
 ```
 
+The output is written to the `dist` folder.
+
 ### Linting
 
 To lint the JavaScript files, run:

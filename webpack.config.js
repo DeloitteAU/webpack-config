@@ -16,7 +16,7 @@ const sassLoader = {
 	},
 };
 
-module.exports = {
+const config = {
 	mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
 	devtool: process.env.WEBPACK_SERVE ? '#eval-source-map' : '#source-map',
 	module: {
@@ -65,3 +65,13 @@ module.exports = {
 		}),
 	],
 };
+
+if (process.env.WEBPACK_SERVE) {
+	config.serve = {
+		dev: {
+			publicPath: '/dist/',
+		},
+	};
+}
+
+module.exports = config;
