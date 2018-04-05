@@ -1,11 +1,22 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer')();
 
 const cssLoader = {
 	loader: 'css-loader',
 	options: {
 		sourceMap: true,
 		minimize: !process.env.WEBPACK_SERVE,
+	},
+};
+
+const postcssLoader = {
+	loader: 'postcss-loader',
+	options: {
+		sourceMap: true,
+		plugins: () => [
+			autoprefixer,
+		],
 	},
 };
 
@@ -30,6 +41,7 @@ const config = {
 						use: [
 							'style-loader',
 							cssLoader,
+							postcssLoader,
 							sassLoader,
 						],
 					}, {
@@ -38,6 +50,7 @@ const config = {
 						use: [
 							MiniCssExtractPlugin.loader,
 							cssLoader,
+							postcssLoader,
 							sassLoader,
 						],
 					},

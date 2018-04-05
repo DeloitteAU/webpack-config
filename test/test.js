@@ -40,11 +40,34 @@ describe('Build', () => {
 				assert.strictEqual(stats.compilation.assets.hasOwnProperty(entry), true);
 			});
 
-			describe('loaded file', () => {
+			let data;
+
+			before(done => {
+				fs.readFile(path.join(__dirname, 'demo/dist', entry), { encoding: 'utf8' }, (err, d) => {
+					if (err) {
+						done(err);
+					} else {
+						data = d;
+						done();
+					}
+				});
+			});
+
+			entryTokens.forEach(token => {
+				it(`should contain text "${token}"`, () => {
+					assert.notStrictEqual(data.indexOf(token), -1);
+				});
+			});
+
+			describe('sourcemap', () => {
+				it('should be included in artefact', () => {
+					assert.strictEqual(stats.compilation.assets.hasOwnProperty(sourcemap), true);
+				});
+
 				let data;
 
 				before(done => {
-					fs.readFile(path.join(__dirname, 'demo/dist', entry), { encoding: 'utf8' }, (err, d) => {
+					fs.readFile(path.join(__dirname, 'demo/dist', sourcemap), { encoding: 'utf8' }, (err, d) => {
 						if (err) {
 							done(err);
 						} else {
@@ -54,36 +77,9 @@ describe('Build', () => {
 					});
 				});
 
-				entryTokens.forEach(token => {
+				sourcemapTokens.forEach(token => {
 					it(`should contain text "${token}"`, () => {
 						assert.notStrictEqual(data.indexOf(token), -1);
-					});
-				});
-			});
-
-			describe('sourcemap', () => {
-				it('should be included in artefact', () => {
-					assert.strictEqual(stats.compilation.assets.hasOwnProperty(sourcemap), true);
-				});
-
-				describe('loaded file', () => {
-					let data;
-
-					before(done => {
-						fs.readFile(path.join(__dirname, 'demo/dist', sourcemap), { encoding: 'utf8' }, (err, d) => {
-							if (err) {
-								done(err);
-							} else {
-								data = d;
-								done();
-							}
-						});
-					});
-
-					sourcemapTokens.forEach(token => {
-						it(`should contain text "${token}"`, () => {
-							assert.notStrictEqual(data.indexOf(token), -1);
-						});
 					});
 				});
 			});
@@ -106,7 +102,7 @@ describe('Build', () => {
 	checkBuild({
 		entry: 'main.css',
 		sourcemap: 'main.css.map',
-		entryTokens: ['background:red', 'text-decoration'],
+		entryTokens: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:gray}'],
 		sourcemapTokens: ['$colour: red', 'text-decoration', 'p {'],
 	});
 

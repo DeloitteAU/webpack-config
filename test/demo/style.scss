@@ -5,3 +5,7 @@ $colour: red;
 body {
 	background: $colour;
 }
+
+::placeholder {
+	color: gray;
+}
