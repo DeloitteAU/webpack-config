@@ -1,8 +1,17 @@
 # DD FED build
 
-This project is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration. Rather than installing and configuring many different npm dependencies on your project, you can simply add this one, and get up and running with Webpack in a way that is consistent with other Deloitte Digital FED projects.
+This project is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration.
 
-The following project types are supported:
+Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install dd-fed-build --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
+
+**Guiding principles:**
+
+- Build tools should be standard across similar projects.
+- Build tools should be maintained and continually improved in a central location.
+- It is not necessary to spend time configuring build tools on every project.
+- When build tools are improved, existing projects should have a workflow available to pull in that improvement.
+
+**The following project types are supported:**
 
 - Web standards projects
 - Vue.js projects
@@ -181,6 +190,7 @@ npm run stylelint
 
 ## To do
 
+- Output directory should be configurable, perhaps the main file in this repo should expose a function instead of just exposing a Webpack config, so it has more flexibility for options.
 - Add tests to verify that build generates JS and CSS files and source maps
 - Publish to npm
 - Add the necessary packages for React
