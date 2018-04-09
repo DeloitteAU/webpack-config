@@ -104,6 +104,7 @@ module.exports = config;
 You can modify the configuration that is returned, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
 
 **Q:** Why is `output` configured via the `options` parameter, while `entry` and other options are configured on the returned object?
+
 **A:** Output is a special case because other parts of the configuration, such as Webpack Serve and Clean plugin need to refer to the output configuration when they are defined.
 
 You can put multiple source files into one bundle:
@@ -240,6 +241,13 @@ npm run stylelint
 - Publish to npm
 - Add the necessary packages for React
 - Look at prettier.io
+
+
+## FAQ
+
+### What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in `dd-fed-build`?
+
+You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of `eslint-config-deloitte` instead of the version that is installed via `dd-fed-build.`
 
 
 ## Known issues
