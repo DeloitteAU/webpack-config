@@ -1,16 +1,10 @@
-const config = require('../../webpack.config.js');
-
-config.context = __dirname;
+const config = require('dd-fed-build');
 
 config.entry = {
 	main: [
-		'./script.js',
-		'./style.scss',
+		'./src/script.js',
+		'./src/style.scss',
 	],
-};
-
-config.output = {
-	path: `${__dirname}/dist`,
 };
 
 module.exports = config;

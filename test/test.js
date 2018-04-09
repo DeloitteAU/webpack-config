@@ -2,8 +2,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
-const webpack = require('webpack');
-const webpackConfig = require('./demo/webpack.config.js');
+const { exec } = require('child_process');
 
 const cleanDist = () => {
 	rimraf.sync(path.join(__dirname, 'demo/dist'));
@@ -19,31 +18,33 @@ describe('Array', () => {
 });
 
 describe('Build', () => {
-	let stats;
-
 	before(function(done) {
 		this.timeout(6000);
 
-		webpack(webpackConfig, (err, s) => {
-			if (err) {
-				done(err);
-			} else {
-				stats = s;
-				done();
-			}
+		const child = exec('npm run build', {
+			cwd: path.resolve(__dirname, 'demo'),
+		});
+		// child.stdout.pipe(process.stdout);
+		child.stderr.pipe(process.stderr);
+		child.on('exit', () => {
+			done();
 		});
 	});
 
 	const checkBuild = ({ entry, sourcemap, entryTokens, sourcemapTokens }) => {
 		describe(entry, () => {
-			it('should be included in artefact', () => {
-				assert.strictEqual(stats.compilation.assets.hasOwnProperty(entry), true);
+			const entryPath = path.join(__dirname, 'demo/dist', entry);
+
+			it('should be included in artefact', done => {
+				fs.access(entryPath, fs.constants.R_OK, err => {
+					assert.strictEqual(err, null);
+					done();
+				});
 			});
 
 			let data;
-
 			before(done => {
-				fs.readFile(path.join(__dirname, 'demo/dist', entry), { encoding: 'utf8' }, (err, d) => {
+				fs.readFile(entryPath, { encoding: 'utf8' }, (err, d) => {
 					if (err) {
 						done(err);
 					} else {
@@ -60,14 +61,18 @@ describe('Build', () => {
 			});
 
 			describe('sourcemap', () => {
-				it('should be included in artefact', () => {
-					assert.strictEqual(stats.compilation.assets.hasOwnProperty(sourcemap), true);
+				const sourcemapPath = path.join(__dirname, 'demo/dist', sourcemap);
+
+				it('should be included in artefact', done => {
+					fs.access(sourcemapPath, fs.constants.R_OK, err => {
+						assert.strictEqual(err, null);
+						done();
+					});
 				});
 
 				let data;
-
 				before(done => {
-					fs.readFile(path.join(__dirname, 'demo/dist', sourcemap), { encoding: 'utf8' }, (err, d) => {
+					fs.readFile(sourcemapPath, { encoding: 'utf8' }, (err, d) => {
 						if (err) {
 							done(err);
 						} else {
@@ -94,8 +99,11 @@ describe('Build', () => {
 	});
 
 	describe('include.js', () => {
-		it('should not be included in artefact', () => {
-			assert.strictEqual(stats.compilation.assets.hasOwnProperty('include.js'), false);
+		it('should not be included in artefact', done => {
+			fs.access(path.join(__dirname, 'demo/dist', 'include.js'), fs.constants.R_OK, err => {
+				assert.notEqual(err, null);
+				done();
+			});
 		});
 	});
 
@@ -107,8 +115,11 @@ describe('Build', () => {
 	});
 
 	describe('import.css', () => {
-		it('should not be included in artefact', () => {
-			assert.strictEqual(stats.compilation.assets.hasOwnProperty('import.css'), false);
+		it('should not be included in artefact', done => {
+			fs.access(path.join(__dirname, 'demo/dist', 'import.css'), fs.constants.R_OK, err => {
+				assert.notEqual(err, null);
+				done();
+			});
 		});
 	});
 });

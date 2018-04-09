@@ -10,6 +10,7 @@
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
   "scripts": {
+    "pretest": "cd test/demo && npm install",
     "test": "mocha test/*.js"
   },
   "dependencies": {
