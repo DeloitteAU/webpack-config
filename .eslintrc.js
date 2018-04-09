@@ -5,6 +5,14 @@ module.exports = {
 	overrides: [
 		{
 			files: [
+				'src/**/*.js',
+			],
+			env: {
+				node: true,
+			},
+		},
+		{
+			files: [
 				'test/test.js',
 			],
 			env: {

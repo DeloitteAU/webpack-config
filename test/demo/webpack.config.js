@@ -1,4 +1,6 @@
-const config = require('dd-fed-build');
+const generateConfig = require('dd-fed-build');
+
+const config = generateConfig();
 
 config.entry = {
 	main: [

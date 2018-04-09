@@ -1,8 +1,8 @@
 {
   "name": "dd-fed-build",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Default Webpack configuration for Deloitte Digital FED projects",
-  "main": "webpack.config.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build.git"
@@ -19,6 +19,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.19",
+    "colors": "^1.2.1",
     "css-loader": "^0.28.11",
     "eslint-config-deloitte": "^3.3.1",
     "mini-css-extract-plugin": "^0.4.0",

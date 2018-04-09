@@ -6,10 +6,9 @@ Rather than installing and configuring many different build tools, such as Webpa
 
 **Guiding principles:**
 
-- Build tools should be standard across similar projects.
+- Build tools should be consistent across similar projects; this helps maintainability, on-boarding, and knowledge-sharing.
 - Build tools should be maintained and continually improved in a central location.
-- It is not necessary to spend time configuring build tools on every project.
-- When build tools are improved, existing projects should have a workflow available to pull in that improvement.
+- A workflow should be available to pull build tooling improvements into ongoing projects.
 
 **The following project types are supported:**
 
@@ -75,10 +74,17 @@ npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build --sav
 npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build-vuejs --save-dev
 ```
 
-2. Add a `webpack.config.js` file, which imports the default config file from **DD FED build** and extends it, specifying entry points:
+2. Add a `webpack.config.js` file which imports **DD FED build**:
 
 ```js
-const config = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
+const generateConfig = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
+
+const config = generateConfig({
+	output: {
+		path: `${__dirname}/dist`,
+		publicPath: 'dist',
+	},
+});
 
 config.entry = {
 	main: [
@@ -88,6 +94,17 @@ config.entry = {
 
 module.exports = config;
 ```
+
+`dd-fed-build` returns a function that can be used to generate a Webpack configuration object. The function accepts an options parameter with the following properties:
+
+| Property name | Description                                                                               |
+|---------------|-------------------------------------------------------------------------------------------|
+| `output`      | The [output](https://webpack.js.org/configuration/output/) configuration for Webpack.     |
+
+You can modify the configuration that is returned, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
+
+**Q:** Why is `output` configured via the `options` parameter, while `entry` and other options are configured on the returned object?
+**A:** Output is a special case because other parts of the configuration, such as Webpack Serve and Clean plugin need to refer to the output configuration when they are defined.
 
 You can put multiple source files into one bundle:
 
@@ -102,7 +119,7 @@ config.entry = {
 
 Stylesheets will be extracted into standalone CSS files by default. If you would like them to be embedded into the JavaScript file, use an extension of `.js.scss`.
 
-3. Add a `browserslist` property to your project's `package.json` file:
+3. Add a `browserslist` property to your project's `package.json` file to define supported browsers:
 
 ```json
 "browserslist": [
@@ -114,7 +131,39 @@ Stylesheets will be extracted into standalone CSS files by default. If you would
 
 Autoprefixer and Babel will refer to this `browserslist` property to determine the output format for CSS and JavaScript.
 
-4. Add an ESLint configuration file called ``.eslintrc.js` to your project:
+Alternatively you can choose to specify your supported browsers in a `.browserslistrc` file.
+
+4. Add a `babel` property to your project's `package.json` file to specify Babel options.
+
+It is recommended to use the `env` preset, which tells Babel to generate ES5 output that will run on whichever browsers we specify as supported browsers.
+
+```json
+"babel": {
+  "presets": [
+    "env"
+  ]
+}
+```
+
+For React projects, use:
+
+```json
+"babel": {
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "transform-decorators",
+    "transform-class-properties",
+    "syntax-dynamic-import"
+  ]
+}
+```
+
+Alternatively you can choose to specify your Babel config in a `.babelrc` file.
+
+5. Add an ESLint configuration file called `.eslintrc.js` to your project:
 
 ```js
 module.exports = {
@@ -124,7 +173,7 @@ module.exports = {
 };
 ```
 
-5. Add a Stylelint configuration file called ``.stylelint.js` to your project:
+6. Add a Stylelint configuration file called `.stylelint.js` to your project:
 
 ```js
 module.exports = {
@@ -134,12 +183,12 @@ module.exports = {
 };
 ```
 
-6. Add `build`, `dev`, `eslint` and `stylelint` scripts to your project's `package.json` file:
+7. Add `build`, `start`, `eslint` and `stylelint` scripts to your project's `package.json` file:
 
 ```json
 "scripts": {
   "build": "webpack --mode production",
-  "dev": "webpack-serve --config webpack.config.js --open",
+  "start": "webpack-serve --config webpack.config.js --open",
   "eslint": "eslint \"**/*.js\"",
   "stylelint": "stylelint \"**/*.scss\""
 }
@@ -152,7 +201,7 @@ module.exports = {
 To run a local development server, rebuild bundles when the source files change, and live-reload in the browser, run:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ### Build
@@ -162,8 +211,6 @@ To generate an artefact for production, run:
 ```bash
 npm run build
 ```
-
-The output is written to the `dist` folder.
 
 ### Linting
 
@@ -190,10 +237,9 @@ npm run stylelint
 
 ## To do
 
-- Output directory should be configurable, perhaps the main file in this repo should expose a function instead of just exposing a Webpack config, so it has more flexibility for options.
-- Add tests to verify that build generates JS and CSS files and source maps
 - Publish to npm
 - Add the necessary packages for React
+- Look at prettier.io
 
 
 ## Known issues

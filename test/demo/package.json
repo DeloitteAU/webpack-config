@@ -8,6 +8,11 @@
   "devDependencies": {
     "dd-fed-build": "../../"
   },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "browserslist": [
     "last 2 versions",
     "IE 11"
