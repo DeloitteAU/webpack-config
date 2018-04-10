@@ -225,6 +225,7 @@ npm run stylelint
 - Publish to npm
 - Add the necessary packages for React
 - Look at prettier.io
+- Add SVG optimisation pipeline with SVGO
 
 
 ## FAQ
