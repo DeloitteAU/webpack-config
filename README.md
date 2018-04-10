@@ -77,14 +77,7 @@ npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build-vuejs
 2. Add a `webpack.config.js` file which imports **DD FED build**:
 
 ```js
-const generateConfig = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
-
-const config = generateConfig({
-	output: {
-		path: `${__dirname}/dist`,
-		publicPath: 'dist',
-	},
-});
+const config = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
 
 config.entry = {
 	main: [
@@ -95,17 +88,7 @@ config.entry = {
 module.exports = config;
 ```
 
-`dd-fed-build` returns a function that can be used to generate a Webpack configuration object. The function accepts an options parameter with the following properties:
-
-| Property name | Description                                                                               |
-|---------------|-------------------------------------------------------------------------------------------|
-| `output`      | The [output](https://webpack.js.org/configuration/output/) configuration for Webpack.     |
-
-You can modify the configuration that is returned, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
-
-**Q:** Why is `output` configured via the `options` parameter, while `entry` and other options are configured on the returned object?
-
-**A:** Output is a special case because other parts of the configuration, such as Webpack Serve and Clean plugin need to refer to the output configuration when they are defined.
+`dd-fed-build` returns a Webpack configuration. You can modify this as you need, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
 
 You can put multiple source files into one bundle:
 
@@ -238,6 +221,7 @@ npm run stylelint
 
 ## To do
 
+- Rename as `webpack-config-deloitte`, `webpack-config-deloitte-vuejs`, etc ?
 - Publish to npm
 - Add the necessary packages for React
 - Look at prettier.io

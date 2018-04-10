@@ -1,6 +1,7 @@
-const generateConfig = require('dd-fed-build');
+const config = require('dd-fed-build');
+const path = require('path');
 
-const config = generateConfig();
+config.output.path = path.resolve(__dirname, 'dist-custom-dir');
 
 config.entry = {
 	main: [
