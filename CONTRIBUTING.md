@@ -6,4 +6,6 @@ To get started please [fork](https://github.com/DeloitteDigitalAPAC/webpack-conf
 
 At the root; run `npm install && npm run bootstrap`.
 
+The bootstrap command will install dependencies of each package, and use Lerna's [hoisting](https://github.com/lerna/lerna/blob/master/doc/hoist.md) option to avoid installing the same packages multiple times. This also allows the demo projects to work.
+
 To test, run `npm test`.
