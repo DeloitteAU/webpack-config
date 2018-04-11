@@ -1,4 +1,4 @@
-const config = require('dd-fed-build');
+const config = require('webpack-config-deloitte');
 const path = require('path');
 
 config.output.path = path.resolve(__dirname, 'dist-custom-dir');

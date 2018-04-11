@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const dd = require('./dd.js');
 
 dd();
-console.log('dd-fed-build');
+console.log('Webpack Config Deloitte');
 console.log('Current working directory:', process.cwd());
 
 const production = (!process.env.WEBPACK_SERVE);

@@ -1,12 +1,12 @@
 {
-  "name": "dd-fed-build-test",
+  "name": "webpack-config-deloitte-test",
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-serve --config webpack.config.js --open"
   },
   "devDependencies": {
-    "dd-fed-build": "../../"
+    "webpack-config-deloitte": "../../"
   },
   "babel": {
     "presets": [

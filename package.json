@@ -1,5 +1,5 @@
 {
-  "name": "dd-fed-build",
+  "name": "webpack-config-deloitte",
   "version": "0.0.1",
   "description": "Default Webpack configuration for Deloitte Digital FED projects",
   "main": "src/index.js",

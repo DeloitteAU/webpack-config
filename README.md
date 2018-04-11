@@ -1,8 +1,8 @@
-# DD FED build
+# Webpack Config Deloitte
 
 This project is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration.
 
-Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install dd-fed-build --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
+Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install webpack-config-deloitte --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
 
 **Guiding principles:**
 
@@ -23,7 +23,7 @@ Support for React has not yet been added. Other TODO tasks are listed at the bot
 - [DD Offscreen](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-offscreen/browse)
 - [Vue.js demo](https://hub.deloittedigital.com.au/stash/projects/FED/repos/vuejs-demo/browse)
 
-## Packages included with DD FED build
+## Packages included with Webpack Config Deloitte
 
 ### Core packages
 
@@ -65,19 +65,19 @@ Support for React has not yet been added. Other TODO tasks are listed at the bot
 **Web standards projects**
 
 ```bash
-npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build --save-dev
+npm install webpack-config-deloitte --save-dev
 ```
 
 **Vue.js projects**
 
 ```bash
-npm install git+ssh://git@hub.deloittedigital.com.au:7999/fed/dd-fed-build-vuejs --save-dev
+npm install webpack-config-deloitte-vuejs --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **DD FED build**:
+2. Add a `webpack.config.js` file which imports **Webpack Config Deloitte**:
 
 ```js
-const config = require('dd-fed-build'); // For Vue.js projects use 'dd-fed-build-vuejs' instead
+const config = require('webpack-config-deloitte'); // For Vue.js projects use 'webpack-config-deloitte-vuejs' instead
 
 config.entry = {
 	main: [
@@ -88,7 +88,7 @@ config.entry = {
 module.exports = config;
 ```
 
-`dd-fed-build` returns a Webpack configuration. You can modify this as you need, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
+`webpack-config-deloitte` returns a Webpack configuration. You can modify this as you need, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
 
 You can put multiple source files into one bundle:
 
@@ -221,18 +221,17 @@ npm run stylelint
 
 ## To do
 
-- Rename as `webpack-config-deloitte`, `webpack-config-deloitte-vuejs`, etc ?
 - Publish to npm
 - Add the necessary packages for React
-- Look at prettier.io
 - Add SVG optimisation pipeline with SVGO
+- Add prettier.io (first create prettier-config-deloitte package)
 
 
 ## FAQ
 
-### What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in `dd-fed-build`?
+### What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in `webpack-config-deloitte`?
 
-You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of `eslint-config-deloitte` instead of the version that is installed via `dd-fed-build.`
+You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of `eslint-config-deloitte` instead of the version that is installed via `webpack-config-deloitte`.
 
 
 ## Known issues
