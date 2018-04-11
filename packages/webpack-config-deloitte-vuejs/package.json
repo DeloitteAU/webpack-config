@@ -1,0 +1,17 @@
+{
+  "name": "webpack-config-deloitte-vuejs",
+  "version": "0.0.0",
+  "description": "Default Webpack configuration for Deloitte Digital FED projects using Vue.js",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeloitteDigitalAPAC/webpack-config-deloitte.git"
+  },
+  "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "webpack-config-deloitte": "^0.0.0",
+    "vue-loader": "^14.2.1",
+    "vue-template-compiler": "^2.5.16"
+  }
+}
