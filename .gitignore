@@ -1,4 +1,4 @@
 node_modules
-test/demo/dist
-test/demo/dist-custom-dir
-test/demo/package-lock.json
+packages/demo/dist
+packages/demo/dist-custom-dir
+packages/demo/package-lock.json
