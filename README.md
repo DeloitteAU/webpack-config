@@ -14,8 +14,9 @@ Rather than installing and configuring many different build tools, such as Webpa
 
 - Web standards projects
 - Vue.js projects
+- React projects
 
-Support for React has not yet been added. Other TODO tasks are listed at the bottom of the page.
+Other TODO tasks are listed at the bottom of the page.
 
 ## Example repositories using this configuration
 
@@ -58,6 +59,12 @@ Support for React has not yet been added. Other TODO tasks are listed at the bot
 | **vue-loader**                  | A Webpack loader which allows us to use `*.vue` files.                                                                                                                                                                                                     |
 | **vue-template-compiler**       | Used to pre-compile Vue templates into render functions to avoid runtime-compilation overhead and CSP restrictions.                                                                                                                                        |
 
+### React packages
+
+| Name 						| Description 													|
+| ------------------------- | ------------------------------------------------------------- |
+| **babel-preset-react** 	| Strip flow types and transform JSX into createElement calls 	|
+
 ## Installation
 
 1. Add the package as a **dev dependency**, by running:
@@ -74,10 +81,18 @@ npm install webpack-config-deloitte --save-dev
 npm install webpack-config-deloitte-vuejs --save-dev
 ```
 
+**React projects**
+
+```bash
+npm install webpack-config-deloitte-react --save-dev
+```
+
 2. Add a `webpack.config.js` file which imports **Webpack Config Deloitte**:
 
 ```js
-const config = require('webpack-config-deloitte'); // For Vue.js projects use 'webpack-config-deloitte-vuejs' instead
+const config = require('webpack-config-deloitte'); 
+// const config = require('webpack-config-deloitte-vuejs'); // For Vue.js projects use this instead
+// const config = require('webpack-config-deloitte-react'); // For React projects use this instead
 
 config.entry = {
 	main: [
@@ -134,13 +149,8 @@ For React projects, use:
 ```json
 "babel": {
   "presets": [
-    "env",
-    "react"
-  ],
-  "plugins": [
-    "transform-decorators",
-    "transform-class-properties",
-    "syntax-dynamic-import"
+	"react"
+    "env"
   ]
 }
 ```
@@ -222,10 +232,8 @@ npm run stylelint
 ## To do
 
 - Publish to npm
-- Add the necessary packages for React
 - Add SVG optimisation pipeline with SVGO
 - Add prettier.io (first create prettier-config-deloitte package)
-
 
 ## FAQ
 
