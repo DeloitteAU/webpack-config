@@ -9,7 +9,7 @@ config.module.rules.push({
 
 config.resolve = {
 	alias: {
-		'~': path.resolve(__dirname, 'src')
+		'~': path.resolve(process.cwd(), 'src'),
 	},
 	extensions: ['.js', '.jsx', '.json', '.scss'],
 };
