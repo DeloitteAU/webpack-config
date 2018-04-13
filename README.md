@@ -1,6 +1,6 @@
 # Webpack Config Deloitte
 
-This project is a Deloitte Digital curated collection of Webpack plugins, loaders and configuration.
+Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects.
 
 Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install webpack-config-deloitte --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
 
@@ -16,13 +16,9 @@ Rather than installing and configuring many different build tools, such as Webpa
 - Vue.js projects
 - React projects
 
-Other TODO tasks are listed at the bottom of the page.
-
 ## Example repositories using this configuration
 
-- [DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse)
-- [DD Offscreen](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-offscreen/browse)
-- [Vue.js demo](https://hub.deloittedigital.com.au/stash/projects/FED/repos/vuejs-demo/browse)
+Refer to the demo folders in the [packages folder](https://github.com/DeloitteDigitalAPAC/webpack-config-deloitte/tree/master/packages).
 
 ## Packages included with Webpack Config Deloitte
 
