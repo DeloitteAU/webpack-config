@@ -1,0 +1,17 @@
+{
+  "name": "demo-react",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-serve --config webpack.config.js --open"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11"
+  ],
+  "dependencies": {
+    "webpack-config-deloitte-react": "^0.0.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  }
+}

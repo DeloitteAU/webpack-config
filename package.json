@@ -10,7 +10,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "pretest": "lerna run --scope demo build",
-    "test": "mocha test/*.js"
+    "test": "mocha test/*.js",
+    "lint": "eslint ./packages --ext .js"
   },
   "devDependencies": {
     "eslint-config-deloitte": "^3.3.1",
