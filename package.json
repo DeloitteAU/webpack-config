@@ -1,9 +1,9 @@
 {
-  "name": "webpack-config-deloitte-publisher",
+  "name": "@deloitte-digital-au/webpack-config-publisher",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DeloitteDigitalAPAC/webpack-config-deloitte.git"
+    "url": "git+https://github.com/DeloitteDigitalAPAC/webpack-config.git"
   },
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",

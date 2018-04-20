@@ -1,4 +1,4 @@
-const config = require('webpack-config-deloitte-vuejs');
+const config = require('@deloitte-digital-au/webpack-config-vuejs');
 
 config.entry = {
 	main: [

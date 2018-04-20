@@ -1,4 +1,4 @@
-const config = require('webpack-config-deloitte-react');
+const config = require('@deloitte-digital-au/webpack-config-react');
 
 config.entry = {
 	main: [

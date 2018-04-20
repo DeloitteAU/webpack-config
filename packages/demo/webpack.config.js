@@ -1,4 +1,4 @@
-const config = require('webpack-config-deloitte');
+const config = require('@deloitte-digital-au/webpack-config');
 const path = require('path');
 
 config.output.path = path.resolve(__dirname, 'dist-custom-dir');
