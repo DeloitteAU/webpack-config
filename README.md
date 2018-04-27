@@ -1,8 +1,8 @@
-# Webpack Config Deloitte
+# Deloitte Digital Webpack Config
 
 Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects.
 
-Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install webpack-config-deloitte --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
+Rather than installing and configuring many different build tools, such as Webpack, Babel, Sass, and PostCSS, you can simply `npm install @deloitte-digital-au/webpack-config --save-dev`, and get these tools up and running in a flash, in a way that is consistent with other Deloitte Digital FED projects.
 
 **Guiding principles:**
 
@@ -18,9 +18,9 @@ Rather than installing and configuring many different build tools, such as Webpa
 
 ## Example repositories using this configuration
 
-Refer to the demo folders in the [packages folder](https://github.com/DeloitteDigitalAPAC/webpack-config-deloitte/tree/master/packages).
+Refer to the demo folders in the [packages folder](https://github.com/DeloitteDigitalAPAC/webpack-config/tree/master/packages).
 
-## Packages included with Webpack Config Deloitte
+## Packages included with Deloitte Digital Webpack Config
 
 ### Core packages
 
@@ -68,27 +68,27 @@ Refer to the demo folders in the [packages folder](https://github.com/DeloitteDi
 **Web standards projects**
 
 ```bash
-npm install webpack-config-deloitte --save-dev
+npm install @deloitte-digital-au/webpack-config --save-dev
 ```
 
 **Vue.js projects**
 
 ```bash
-npm install webpack-config-deloitte-vuejs --save-dev
+npm install @deloitte-digital-au/webpack-config-vuejs --save-dev
 ```
 
 **React projects**
 
 ```bash
-npm install webpack-config-deloitte-react --save-dev
+npm install @deloitte-digital-au/webpack-config-react --save-dev
 ```
 
 2. Add a `webpack.config.js` file which imports **Webpack Config Deloitte**:
 
 ```js
-const config = require('webpack-config-deloitte'); 
-// const config = require('webpack-config-deloitte-vuejs'); // For Vue.js projects use this instead
-// const config = require('webpack-config-deloitte-react'); // For React projects use this instead
+const config = require('@deloitte-digital-au/webpack-config'); 
+// const config = require('@deloitte-digital-au/webpack-config-vuejs'); // For Vue.js projects use this instead
+// const config = require('@deloitte-digital-au/webpack-config-react'); // For React projects use this instead
 
 config.entry = {
 	main: [
@@ -99,7 +99,7 @@ config.entry = {
 module.exports = config;
 ```
 
-`webpack-config-deloitte` returns a Webpack configuration. You can modify this as you need, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
+`@deloitte-digital-au/webpack-config` returns a Webpack configuration. You can modify this as you need, for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
 
 You can put multiple source files into one bundle:
 
@@ -233,9 +233,9 @@ npm run stylelint
 
 ## FAQ
 
-### What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in `webpack-config-deloitte`?
+### What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in `@deloitte-digital-au/webpack-config`?
 
-You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of `eslint-config-deloitte` instead of the version that is installed via `webpack-config-deloitte`.
+You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of `eslint-config-deloitte` instead of the version that is installed via `@deloitte-digital-au/webpack-config`.
 
 
 ## Known issues

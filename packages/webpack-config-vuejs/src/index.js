@@ -1,4 +1,4 @@
-const config = require('webpack-config-deloitte');
+const config = require('@deloitte-digital-au/webpack-config');
 
 config.module.rules.push({
 	test: /\.vue$/,
