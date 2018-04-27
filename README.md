@@ -1,4 +1,4 @@
-# Deloitte Digital Webpack Config
+# Deloitte Digital Webpack Config [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config)
 
 Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects.
 

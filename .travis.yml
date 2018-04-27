@@ -1,0 +1,9 @@
+---
+language: node_js
+node_js:
+  - "8.7"
+sudo: false
+install:
+  - npm install && npm run bootstrap
+script:
+  - cd ${TRAVIS_BUILD_DIR} && npm test
