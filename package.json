@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "eslint-config-deloitte": "^3.3.1",
-    "lerna": "^2.9.0",
-    "mocha": "^5.0.5",
+    "lerna": "^2.11.0",
+    "mocha": "^5.1.1",
     "rimraf": "^2.6.2",
     "stylelint-config-deloitte": "^1.0.2"
   }
