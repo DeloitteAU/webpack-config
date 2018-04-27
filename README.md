@@ -1,6 +1,6 @@
 ![Deloitte Digital](https://raw.githubusercontent.com/DeloitteDigitalAPAC/eslint-config-deloitte/master/dd-logo.png)
 
-# Deloitte Digital Webpack Config [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config)
+# Webpack Config [![Build Status](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config.svg?branch=master)](https://travis-ci.org/DeloitteDigitalAPAC/webpack-config)
 
 Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects.
 
