@@ -8,7 +8,7 @@ Rather than installing and configuring many different build tools, such as Webpa
 you can simply use this *single* package and get these tools up and running in a flash, in a way that is consistent with
 other Deloitte Digital FED projects.
 
-** 🛂 Guiding principles:**
+**Guiding principles:**
 
 - Build tools should be consistent across similar projects; this helps maintainability, on-boarding, and knowledge-sharing.
 - Build tools should be maintained and continually improved in a central location.
@@ -50,15 +50,15 @@ other Deloitte Digital FED projects.
 | Name | Description |
 |------|-------------|
 | [**webpack**][1] | Webpack is the engine that allows us to process files and bundle them into packages according to 
-rules that we specify.
+rules that we specify. |
 | [**babel-core**][2] | Babel is a JavaScript compiler. We write our JavaScript according to the latest spec (ESNext), 
-and Babel compiles it into a specified format (see babel-preset-env). This package is the core compiler for Babel.
-| [**node-sass**][3] | The engine of the popular stylesheet preprocessor, Sass.
-| [**post-css**][4] | A tool for applying transformations to CSS, such as adding browser prefixes with Autoprefixer.
+and Babel compiles it into a specified format (see babel-preset-env). This package is the core compiler for Babel. |
+| [**node-sass**][3] | The engine of the popular stylesheet preprocessor, Sass. |
+| [**post-css**][4] | A tool for applying transformations to CSS, such as adding browser prefixes with Autoprefixer. |
 | [**eslint-config-deloitte**][5] | Deloitte Digital's JavaScript code standards as an ESLint extensible config. Also 
-includes the ESLint package.
+includes the ESLint package. |
 | [**stylelint-config-deloitte**][6] | Deloitte Digital's Sass code standards as a Stylelint extensible config. Also 
-includes the Stylelint package.
+includes the Stylelint package. |
 
 [1]: https://www.npmjs.com/package/webpack
 [2]: https://www.npmjs.com/package/babel-core
@@ -71,22 +71,23 @@ includes the Stylelint package.
 
 | Name | Description |
 |------|-------------|
-| [**autoprefixer**][7] | A PostCSS plugin for adding browser prefixes to CSS.
-| [**babel-loader**][8] | The integration between Babel and Webpack.
+| [**autoprefixer**][7] | A PostCSS plugin for adding browser prefixes to CSS. |
+| [**babel-loader**][8] | The integration between Babel and Webpack. |
 | [**babel-preset-env**][9] | Presets specify the output format for Babel. This preset allows us to generate ES5 output 
 that will run on whichever browsers we specify. To specify which browsers are supported, add a `browserslist` entry to 
-your project's `package.json` file.
-| [**clean-webpack-plugin**][10] | Cleans out the `dist` folder before starting a new build.
-| [**css-loader**][11] | A Webpack loader which allows us to load CSS files with `@import` and `url()`.
+your project's `package.json` file. |
+| [**clean-webpack-plugin**][10] | Cleans out the `dist` folder before starting a new build. |
+| [**css-loader**][11] | A Webpack loader which allows us to load CSS files with `@import` and `url()`. |
 | [**mini-css-extract-plugin**][12] | Webpack's architecture is built around JavaScript. Support has been added for CSS, 
 however it results in CSS being embedded inside JavaScript files. This package allows us to export CSS into standalone 
-files.
-| [**sass-loader**][13] | The integration between Sass and Webpack.
+files. |
+| [**sass-loader**][13] | The integration between Sass and Webpack. |
 | [**style-loader**][14] | Allows us to embed CSS into JavaScript. This is useful for functional CSS that is specifically 
-related to a JavaScript module, for example the `.shade-bg` rule in [DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse)
+related to a JavaScript module, for example the `.shade-bg` rule in 
+[DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse) |
 | [**webpack-cli**][15] | The command line interface for Webpack allows us to enter Webpack commands into our project's 
-`package.json` file.
-| [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading.
+`package.json` file. |
+| [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading. |
 
 [7]: https://www.npmjs.com/package/autoprefixer
 [8]: https://www.npmjs.com/package/babel-loader
@@ -121,6 +122,11 @@ related to a JavaScript module, for example the `.shade-bg` rule in [DD Shade](h
 
 
 ## Installation
+
+- [Install for a standard js project](#install-for-a-standard-js-project)
+- [Install for a Vue.js project](#install-for-a-vuejs-project)
+- [Install for a React project](#install-for-a-react-project)
+- [Configurating the tools](#configurating-the-tools)
 
 ### Install for a standard js project
 
