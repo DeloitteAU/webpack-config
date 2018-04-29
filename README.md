@@ -30,7 +30,7 @@ other Deloitte Digital FED projects.
 	- [Install for a standard js project](#install-for-a-standard-js-project)
 	- [Install for a Vue.js project](#install-for-a-vuejs-project)
 	- [Install for a React project](#install-for-a-react-project)
-	- [Configurating the tools](#configurating-the-tools)
+	- [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
 	- [npm start](#npm-start)
 	- [npm run build](#npm-run-build)
@@ -91,19 +91,19 @@ other Deloitte Digital FED projects.
 
 ### Vue.js packages
 
-| Name								| Description													|
-| --------------------------------- | ------------------------------------------------------------- |
-| [**vue-loader**][17] 				| A Webpack loader which allows us to use `*.vue` files.		|
-| [**vue-template-compiler**][18] 	| Used to pre-compile Vue templates into render functions		|
+| Name | Description |
+|------|-------------|
+| [**vue-loader**][17] | A Webpack loader which allows us to use `*.vue` files. |
+| [**vue-template-compiler**][18] 	| Used to pre-compile Vue templates into render functions |
 
 [17]: https://www.npmjs.com/package/vue-loader
 [18]: https://www.npmjs.com/package/vue-template-compiler
 
 ### React packages
 
-| Name 							| Description 													|
-| ----------------------------- | ------------------------------------------------------------- |
-| [**babel-preset-react**][19] 	| Strip flow types and transform JSX into createElement calls 	|
+| Name | Description |
+|------|-------------|
+| [**babel-preset-react**][19] 	| Strip flow types and transform JSX into createElement calls |
 
 [19]: https://www.npmjs.com/package/babel-preset-react
 
@@ -115,7 +115,7 @@ other Deloitte Digital FED projects.
 - [Install for a standard js project](#install-for-a-standard-js-project)
 - [Install for a Vue.js project](#install-for-a-vuejs-project)
 - [Install for a React project](#install-for-a-react-project)
-- [Configurating the tools](#configurating-the-tools)
+- [Getting Started](#getting-started)
 
 ### Install for a standard js project
 
@@ -282,7 +282,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs a local development server, rebuild's bundles when the source files change, and live-reload in the browser.
+Runs a local development server, rebuilds bundles when the source files change, and live-reload in the browser.
 
 ### `npm run build`
 
