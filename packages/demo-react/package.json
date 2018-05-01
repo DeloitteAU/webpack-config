@@ -11,8 +11,8 @@
   ],
   "dependencies": {
     "@deloitte-digital-au/webpack-config-react": "^0.0.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react": "16.3.2",
+    "react-dom": "16.3.2"
   },
   "version": "0.0.1"
 }
