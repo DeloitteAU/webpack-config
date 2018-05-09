@@ -53,15 +53,15 @@ other Deloitte Digital FED projects.
 | [**babel-core**][2] | Babel is a JavaScript compiler. We write our JavaScript according to the latest spec (ESNext), and Babel compiles it into a specified format (see babel-preset-env). This package is the core compiler for Babel. |
 | [**node-sass**][3] | The engine of the popular stylesheet preprocessor, Sass. |
 | [**post-css**][4] | A tool for applying transformations to CSS, such as adding browser prefixes with Autoprefixer. |
-| [**eslint-config-deloitte**][5] | Deloitte Digital's JavaScript code standards as an ESLint extensible config. Also includes the ESLint package. |
-| [**stylelint-config-deloitte**][6] | Deloitte Digital's Sass code standards as a Stylelint extensible config. Also includes the Stylelint package. |
+| [**@deloitte-digital-au/eslint-confige**][5] | Deloitte Digital's JavaScript code standards as an ESLint extensible config. Also includes the ESLint package. |
+| [**@deloitte-digital-au/stylelint-config**][6] | Deloitte Digital's Sass code standards as a Stylelint extensible config. Also includes the Stylelint package. |
 
 [1]: https://www.npmjs.com/package/webpack
 [2]: https://www.npmjs.com/package/babel-core
 [3]: https://www.npmjs.com/package/node-sass
 [4]: https://github.com/postcss/postcss
-[5]: https://www.npmjs.com/package/eslint-config-deloitte
-[6]: https://www.npmjs.com/package/stylelint-config-deloitte
+[5]: https://www.npmjs.com/package/@deloitte-digital-au/eslint-config
+[6]: https://www.npmjs.com/package/@deloitte-digital-au/stylelint-config
 
 ### Plugins and Loaders
 
@@ -245,7 +245,7 @@ For React projects, use:
 ```js
 module.exports = {
 	extends: [
-		'eslint-config-deloitte',
+		'@deloitte-digital-au/eslint-config',
 	],
 };
 ```
@@ -255,7 +255,7 @@ module.exports = {
 ```js
 module.exports = {
 	extends: [
-		'stylelint-config-deloitte',
+		'@deloitte-digital-au/stylelint-config',
 	],
 };
 ```
@@ -353,11 +353,11 @@ Refer to the demo folders in the
 
 ## FAQs
 
-**Q: What if I want to install a newer version of `eslint-config-deloitte`, which has not yet been released in 
+**Q: What if I want to install a newer version of `@deloitte-digital-au/eslint-config`, which has not yet been released in 
 `@deloitte-digital-au/webpack-config`?**
 
-A: You can still `npm install eslint-config-deloitte` in your project. Then your project will use this version of 
-`eslint-config-deloitte` instead of the version that is installed via `@deloitte-digital-au/webpack-config`.
+A: You can still `npm install @deloitte-digital-au/eslint-config` in your project. Then your project will use this version of 
+`@deloitte-digital-au/eslint-config` instead of the version that is installed via `@deloitte-digital-au/webpack-config`.
 
 **[⬆ back to top](#table-of-contents)**
 
