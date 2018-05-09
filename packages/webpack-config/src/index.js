@@ -40,7 +40,7 @@ const cssLoaders = [
 			// Set scss debug flag
 			data: `$IS_DEBUG: ${!isProduction};`,
 		},
-	}
+	},
 ];
 
 // Base config
@@ -85,7 +85,7 @@ const config = {
 		rules: [
 			// Disable require.ensure as it's not a standard language feature.
 			{
-				parser: { requireEnsure: false }
+				parser: { requireEnsure: false },
 			},
 
 			// Style loaders
@@ -127,7 +127,6 @@ const config = {
 	],
 
 };
-
 
 
 if (isProduction) {
