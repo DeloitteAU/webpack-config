@@ -131,9 +131,9 @@ npm install @deloitte-digital-au/webpack-config --save-dev
 const config = require('@deloitte-digital-au/webpack-config'); 
 
 config.entry = {
-	main: [
-		'./src/index.js',
-	],
+    main: [
+        './src/index.js',
+    ],
 };
 
 module.exports = config;
@@ -156,9 +156,9 @@ npm install @deloitte-digital-au/webpack-config-vuejs --save-dev
 const config = require('@deloitte-digital-au/webpack-config-vuejs');
 
 config.entry = {
-	main: [
-		'./src/index.js',
-	],
+    main: [
+        './src/index.js',
+    ],
 };
 
 module.exports = config;
@@ -181,9 +181,9 @@ npm install @deloitte-digital-au/webpack-config-react --save-dev
 const config = require('@deloitte-digital-au/webpack-config-react');
 
 config.entry = {
-	main: [
-		'./src/index.js',
-	],
+    main: [
+        './src/index.js',
+    ],
 };
 
 module.exports = config;
@@ -244,9 +244,9 @@ For React projects, use:
 
 ```js
 module.exports = {
-	extends: [
-		'@deloitte-digital-au/eslint-config',
-	],
+    extends: [
+        '@deloitte-digital-au/eslint-config',
+    ],
 };
 ```
 
@@ -254,9 +254,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	extends: [
-		'@deloitte-digital-au/stylelint-config',
-	],
+    extends: [
+        '@deloitte-digital-au/stylelint-config',
+    ],
 };
 ```
 
@@ -316,10 +316,10 @@ You can put multiple source files into one bundle:
 
 ```js
 config.entry = {
-	main: [
-		'./src/index.js',
-		'./src/style.scss',
-	],
+    main: [
+        './src/index.js',
+        './src/style.scss',
+    ],
 };
 ```
 
@@ -375,12 +375,12 @@ along with the CSS. For example if you did this:
 
 ```js
 config.entry = {
-	main: [
-		'./script.js',
-	],
-	style: [
-		'./style.scss', // Not recommended to have an entry with just CSS
-	],
+    main: [
+        './script.js',
+    ],
+    style: [
+        './style.scss', // Not recommended to have an entry with just CSS
+    ],
 };
 ```
 
@@ -394,10 +394,10 @@ To avoid this it is recommended to attach your CSS to an entry that also has Jav
 
 ```js
 config.entry = {
-	main: [
-		'./script.js',
-		'./style.scss',
-	],
+    main: [
+        './script.js',
+        './style.scss',
+    ],
 };
 ```
 
