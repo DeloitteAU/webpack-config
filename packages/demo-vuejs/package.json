@@ -15,10 +15,10 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@deloitte-digital-au/webpack-config-vuejs": "^0.0.1"
+    "@deloitte-digital-au/webpack-config-vuejs": "^0.0.2"
   },
   "dependencies": {
     "vue": "^2.5.16"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

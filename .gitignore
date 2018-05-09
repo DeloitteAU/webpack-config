@@ -1,3 +1,5 @@
 node_modules
 lerna-debug.log
 .idea
+packages/*/package-lock.json
+packages/*/dist*
