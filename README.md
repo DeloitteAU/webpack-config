@@ -309,7 +309,8 @@ You can run the linters individually with: `npm run lint:js` and `npm run lint:s
 
 ### How to customise the webpack config
 
-`@deloitte-digital-au/webpack-config` returns a preconfigured Webpack configuration. You can modify this as you need, 
+`@deloitte-digital-au/webpack-config` returns a [preconfigured Webpack configuration](https://github.com/DeloitteDigitalAPAC/webpack-config/blob/master/packages/webpack-config/src/index.js). 
+You can modify this as you need, 
 for example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
 
 You can put multiple source files into one bundle:

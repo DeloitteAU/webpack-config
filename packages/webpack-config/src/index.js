@@ -9,9 +9,12 @@ dd();
 console.log('Webpack Config Deloitte');
 console.log('Current working directory:', process.cwd());
 
+// Get mode configuration option
+// https://webpack.js.org/concepts/mode/
 const production = (!process.env.WEBPACK_SERVE);
 const mode = (production ? 'production' : 'development');
 
+// Common style loaders
 const cssLoaders = [{
 	loader: 'css-loader',
 	options: {
@@ -65,6 +68,7 @@ const config = {
 	},
 };
 
+// This plugin is used to extract CSS into its own files
 config.plugins = [
 	new MiniCssExtractPlugin({
 		filename: '[name].css',
@@ -72,6 +76,7 @@ config.plugins = [
 	}),
 ];
 
+// Options for production builds
 if (production) {
 	config.devtool = '#source-map'; // Slow to generate, but keeps JS and CSS small because Sourcemap is in separate file
 
@@ -94,6 +99,7 @@ if (production) {
 			// CleanWebpackPlugin root is linked to output.path and cannot be modified
 		},
 	}));
+// Options for development
 } else {
 	config.devtool = '#eval-source-map'; // Fast to generate
 
