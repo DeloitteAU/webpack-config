@@ -10,9 +10,9 @@
     "IE 11"
   ],
   "dependencies": {
-    "@deloitte-digital-au/webpack-config-react": "^0.0.2",
+    "@deloitte-digital-au/webpack-config-react": "^0.0.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
-  "version": "0.0.2"
+  "version": "0.0.3"
 }

@@ -1,5 +1,10 @@
-# Unpublished 
+# Changelog
 
+## Unpublished
+
+## 0.0.3
+
+- Update dependency webpack-serve to v1
 - Added lots of code comments
 - Added '~/' src alias for imports
 - Now affixes 'bundle' to bundle file names
