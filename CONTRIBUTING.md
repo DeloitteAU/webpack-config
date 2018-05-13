@@ -10,7 +10,7 @@ don’t accidentally duplicate your effort.
 If somebody claims an issue but doesn’t follow up for more than two weeks, it’s fine to take over it but you should 
 still leave a comment.
 
-## Getting 	started
+## Getting started
 
 **Prerequisites**
 
