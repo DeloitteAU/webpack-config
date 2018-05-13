@@ -26,7 +26,7 @@
     "stylelint-config-deloitte": "^1.0.2",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
-    "webpack-serve": "^0.3.1"
+    "webpack-serve": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"
