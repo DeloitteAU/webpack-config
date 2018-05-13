@@ -157,7 +157,7 @@ if (isProduction) {
 	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
 	config.devtool = 'cheap-module-source-map';
 
-	// Makes some environment variables available to the JS code, for example:
+	// Makes some environment variables available to the JS code
 	config.plugins.push(new webpack.DefinePlugin({
 		'process.env.NODE_ENV': JSON.stringify('development'),
 	}));
