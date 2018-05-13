@@ -11,7 +11,10 @@
     "bootstrap": "lerna bootstrap --hoist",
     "pretest": "lerna run --scope demo build",
     "test": "mocha test/*.js",
-    "lint": "eslint ./packages --ext .js"
+    "lint": "eslint ./packages --ext .js",
+    "start": "lerna run start --scope demo --stream",
+    "start:react": "lerna run start --scope demo-react --stream",
+    "start:vuejs": "lerna run start --scope demo-vuejs --stream"
   },
   "devDependencies": {
     "eslint-config-deloitte": "^3.3.1",
