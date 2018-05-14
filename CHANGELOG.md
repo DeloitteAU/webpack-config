@@ -2,6 +2,8 @@
 
 ## Unpublished
 
+## 0.0.4
+
 - Changed `eslint-config-deloitte` to `@deloitte-digital-au/eslint-config`.
 - Changed `stylelint-config-deloitte` to `@deloitte-digital-au/stylelint-config`.
 

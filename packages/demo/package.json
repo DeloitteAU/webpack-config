@@ -15,7 +15,7 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@deloitte-digital-au/webpack-config": "^0.0.3"
+    "@deloitte-digital-au/webpack-config": "^0.0.4"
   },
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
