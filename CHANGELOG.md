@@ -2,6 +2,9 @@
 
 ## Unpublished
 
+- Changed `eslint-config-deloitte` to `@deloitte-digital-au/eslint-config`.
+- Changed `stylelint-config-deloitte` to `@deloitte-digital-au/stylelint-config`.
+
 ## 0.0.3
 
 - Update dependency webpack-serve to v1

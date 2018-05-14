@@ -1,6 +1,6 @@
 module.exports = {
 	extends: [
-		'eslint-config-deloitte',
+		'@deloitte-digital-au/eslint-config',
 	],
 	env: {
 		node: true,
