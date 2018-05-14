@@ -17,10 +17,10 @@
     "start:vuejs": "lerna run start --scope demo-vuejs --stream"
   },
   "devDependencies": {
-    "eslint-config-deloitte": "^3.3.1",
+    "@deloitte-digital-au/eslint-config": "^3.4.0",
+    "@deloitte-digital-au/stylelint-config": "^1.1.0",
     "lerna": "^2.11.0",
     "mocha": "^5.1.1",
-    "rimraf": "^2.6.2",
-    "stylelint-config-deloitte": "^1.0.2"
+    "rimraf": "^2.6.2"
   }
 }
