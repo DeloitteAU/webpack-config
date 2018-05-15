@@ -20,6 +20,7 @@ const cssLoaders = [
 		options: {
 			sourceMap: !isProduction,
 			minimize: isProduction,
+			url: false,
 		},
 	},
 	// 'postcss' loader automatically applies browser prefixes to our css.

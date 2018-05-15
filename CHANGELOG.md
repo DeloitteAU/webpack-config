@@ -2,6 +2,8 @@
 
 ## Unpublished
 
+- Bug fix: CSS Loader should not try to resolve url(), because this Webpack config does not process images.
+
 ## 0.0.4
 
 - Changed `eslint-config-deloitte` to `@deloitte-digital-au/eslint-config`.
