@@ -34,6 +34,7 @@ other Deloitte Digital FED projects.
 - [Available Scripts](#available-scripts)
 	- [npm start](#npm-start)
 	- [npm run build](#npm-run-build)
+	- [npm run watch](#npm-run-watch)
 	- [npm run lint](#npm-run-lint)
 - [Options](#options)
 	- [How to customise the webpack config](#how-to-customise-the-webpack-config)
@@ -262,12 +263,13 @@ module.exports = {
 
 #### 4. Scripts
 
-Add `build`, `start`, and `lint` scripts to your project's `package.json` file:
+Add `build`, `start`, `watch` and/or `lint` scripts to your project's `package.json` file:
 
 ```json
 "scripts": {
   "build": "webpack --mode production",
   "start": "webpack-serve --config webpack.config.js --open",
+  "watch": "webpack --mode development --watch",
   "lint": "lint:js && lint:styles",
   "lint:js": "eslint \"**/*.js\"",
   "lint:styles": "stylelint \"**/*.scss\"",
@@ -288,6 +290,12 @@ Runs a local development server, rebuilds bundles when the source files change, 
 
 Builds the app for production to the dist folder.
 It correctly bundles in production mode and optimizes the build for the best performance.
+You may wish to create a variation of this script with `--mode development` to include source maps in the bundle.
+
+### `npm run watch`
+
+Builds the app for development/testing to the dist folder.
+It correctly bundles in development mode, including source maps.
 
 ### `npm run lint`
 

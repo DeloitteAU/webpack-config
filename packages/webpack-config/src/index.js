@@ -1,3 +1,4 @@
+const argv = require('yargs').argv;
 const autoprefixer = require('autoprefixer')();
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -5,12 +6,17 @@ const path = require('path');
 const webpack = require('webpack');
 const dd = require('./dd.js');
 
-dd();
-console.log('Webpack Config Deloitte');
-console.log('Current working directory:', process.cwd());
+let mode = 'production';
+if (argv.mode === 'development' || argv.mode === 'production') {
+	mode = argv.mode;
+} else if (process.env.WEBPACK_SERVE) {
+	mode = 'development';
+}
 
-// Use the server mode variable to determine config settings
-const isProduction = (!process.env.WEBPACK_SERVE);
+dd();
+console.log('Deloitte Digital Webpack Config');
+console.log('Current working directory:', process.cwd());
+console.log('Mode:', mode);
 
 // style loaders
 const cssLoaders = [
@@ -18,8 +24,8 @@ const cssLoaders = [
 	{
 		loader: 'css-loader',
 		options: {
-			sourceMap: !isProduction,
-			minimize: isProduction,
+			sourceMap: (mode === 'development'),
+			minimize: (mode === 'production'),
 			url: false,
 		},
 	},
@@ -27,7 +33,7 @@ const cssLoaders = [
 	{
 		loader: 'postcss-loader',
 		options: {
-			sourceMap: !isProduction,
+			sourceMap: (mode === 'development'),
 			plugins: () => [
 				autoprefixer,
 			],
@@ -37,9 +43,9 @@ const cssLoaders = [
 	{
 		loader: 'sass-loader',
 		options: {
-			sourceMap: !isProduction,
+			sourceMap: (mode === 'development'),
 			// Set scss debug flag
-			data: `$IS_DEBUG: ${!isProduction};`,
+			data: `$IS_DEBUG: ${(mode === 'development')};`,
 		},
 	},
 ];
@@ -49,7 +55,7 @@ const cssLoaders = [
 const config = {
 
 	// Chosen mode tells webpack to use its built-in optimizations accordingly.
-	mode: isProduction ? 'production' : 'development', // or 'none'
+	mode,
 
 	// Output options related to how webpack emits results
 	// https://webpack.js.org/configuration/output/
@@ -125,18 +131,28 @@ const config = {
 			filename: '[name].css',
 			chunkFilename: '[id].css',
 		}),
+		// Makes some environment variables available to the JS code
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(mode),
+		}),
 	],
-
 };
 
+if (process.env.WEBPACK_SERVE) {
+	config.serve = {
+		// Silence WebpackServer's own logs since they're generally not useful.
+		logLevel: 'error',
 
-if (isProduction) {
+		hot: true,
 
-	// Makes some environment variables available to the JS code, for example:
-	config.plugins.push(new webpack.DefinePlugin({
-		'process.env.NODE_ENV': JSON.stringify('production'),
-	}));
-
+		dev: {
+			get publicPath() { return config.output.publicPath; },
+			set publicPath(val) {
+				throw new Error('serve.dev is immutable. Please modify "output.publicPath" instead.');
+			},
+		},
+	};
+} else {
 	// Clean the output directory before a build
 	config.plugins.push(new CleanWebpackPlugin(['*'], {
 		get root() {
@@ -153,32 +169,14 @@ if (isProduction) {
 			// CleanWebpackPlugin root is linked to output.path and cannot be modified
 		},
 	}));
-} else {
+}
 
+if (mode === 'development') {
 	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
 	config.devtool = 'cheap-module-source-map';
 
-	// Makes some environment variables available to the JS code
-	config.plugins.push(new webpack.DefinePlugin({
-		'process.env.NODE_ENV': JSON.stringify('development'),
-	}));
-
 	// Add module names to factory functions so they appear in browser profiler.
 	config.plugins.push(new webpack.NamedModulesPlugin());
-
-	config.serve = {
-		// Silence WebpackServer's own logs since they're generally not useful.
-		logLevel: 'error',
-
-		hot: true,
-
-		dev: {
-			get publicPath() { return config.output.publicPath; },
-			set publicPath(val) {
-				throw new Error('serve.dev is immutable. Please modify "output.publicPath" instead.');
-			},
-		},
-	};
 }
 
 module.exports = config;
