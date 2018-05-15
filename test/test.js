@@ -7,15 +7,8 @@ const { exec } = require('child_process');
 const cleanDist = () => {
 	rimraf.sync(path.join(__dirname, '../packages/demo/dist-custom-dir'));
 };
-cleanDist();
 
-describe('Array', () => {
-	describe('#indexOf()', () => {
-		it('should return -1 when the value is not present', () => {
-			assert.strictEqual([1,2,3].indexOf(4), -1);
-		});
-	});
-});
+cleanDist();
 
 describe('Build', () => {
 	before(function(done) {
@@ -31,7 +24,7 @@ describe('Build', () => {
 		});
 	});
 
-	const checkBuild = ({ entry, sourcemap, entryTokens, sourcemapTokens }) => {
+	const checkBuild = ({ entry, entryTokens}) => {
 		describe(entry, () => {
 			const entryPath = path.join(__dirname, '../packages/demo/dist-custom-dir', entry);
 
@@ -60,42 +53,12 @@ describe('Build', () => {
 				});
 			});
 
-			describe('sourcemap', () => {
-				const sourcemapPath = path.join(__dirname, '../packages/demo/dist-custom-dir', sourcemap);
-
-				it('should be included in artefact', done => {
-					fs.access(sourcemapPath, fs.constants.R_OK, err => {
-						assert.strictEqual(err, null);
-						done();
-					});
-				});
-
-				let data;
-				before(done => {
-					fs.readFile(sourcemapPath, { encoding: 'utf8' }, (err, d) => {
-						if (err) {
-							done(err);
-						} else {
-							data = d;
-							done();
-						}
-					});
-				});
-
-				sourcemapTokens.forEach(token => {
-					it(`should contain text "${token}"`, () => {
-						assert.notStrictEqual(data.indexOf(token), -1);
-					});
-				});
-			});
 		});
 	};
 
 	checkBuild({
-		entry: 'main.js',
-		sourcemap: 'main.js.map',
+		entry: 'main.bundle.js',
 		entryTokens: ['Bonjour', 'Hola'],
-		sourcemapTokens: ['Bonjour', 'Hola'],
 	});
 
 	describe('include.js', () => {
@@ -109,9 +72,7 @@ describe('Build', () => {
 
 	checkBuild({
 		entry: 'main.css',
-		sourcemap: 'main.css.map',
 		entryTokens: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:gray}'],
-		sourcemapTokens: ['$colour: red', 'text-decoration', 'p {'],
 	});
 
 	describe('import.css', () => {

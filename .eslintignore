@@ -1,3 +1,4 @@
 packages/**/dist
+packages/**/dist-custom-dir
 packages/**/lib
 packages/**/node_modules

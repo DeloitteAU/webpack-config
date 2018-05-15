@@ -1,5 +1,5 @@
 module.exports = {
 	extends: [
-		'stylelint-config-deloitte',
+		'@deloitte-digital-au/stylelint-config',
 	],
 };
