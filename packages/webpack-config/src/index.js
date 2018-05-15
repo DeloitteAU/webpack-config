@@ -7,7 +7,9 @@ const webpack = require('webpack');
 const dd = require('./dd.js');
 
 let mode = 'production';
-if (argv.mode === 'development' || argv.mode === 'production') {
+if (process.env.NODE_ENV) {
+	mode = process.env.NODE_ENV;
+} else if (argv.mode) {
 	mode = argv.mode;
 } else if (process.env.WEBPACK_SERVE) {
 	mode = 'development';

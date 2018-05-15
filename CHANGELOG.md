@@ -2,7 +2,7 @@
 
 ## Unpublished
 
-- Added support for environment to be defined in Webpack CLI's `--mode` flag.
+- Added support for environment to be defined in NODE_ENV environment variable or Webpack CLI's `--mode` flag.
 - Bug fix: CSS Loader should not try to resolve url(), because this Webpack config does not process images.
 
 ## 0.0.4
