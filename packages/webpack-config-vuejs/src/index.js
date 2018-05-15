@@ -1,8 +1,12 @@
-const config = require('@deloitte-digital-au/webpack-config');
+const { config, loaders } = require('@deloitte-digital-au/webpack-config');
+
+loaders.vueLoader = {
+	loader: 'vue-loader',
+};
 
 config.module.rules.push({
 	test: /\.vue$/,
-	loader: 'vue-loader',
+	use: loaders.vueLoader,
 });
 
 config.resolve = {
@@ -12,4 +16,7 @@ config.resolve = {
 	extensions: ['*', '.js', '.vue', '.json'],
 };
 
-module.exports = config;
+module.exports = {
+	config,
+	loaders,
+};

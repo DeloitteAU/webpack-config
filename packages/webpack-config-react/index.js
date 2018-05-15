@@ -1,9 +1,9 @@
 const path = require('path');
-const config = require('@deloitte-digital-au/webpack-config');
+const { config, loaders } = require('@deloitte-digital-au/webpack-config');
 
 config.module.rules.push({
 	test: /\.jsx?$/,
-	loader: 'babel-loader',
+	use: loaders.babelLoader,
 	exclude: /node_modules/,
 });
 
@@ -14,4 +14,7 @@ config.resolve = {
 	extensions: ['.js', '.jsx', '.json', '.scss'],
 };
 
-module.exports = config;
+module.exports = {
+	config,
+	loaders,
+};

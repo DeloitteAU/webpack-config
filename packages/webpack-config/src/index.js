@@ -12,10 +12,12 @@ console.log('Current working directory:', process.cwd());
 // Use the server mode variable to determine config settings
 const isProduction = (!process.env.WEBPACK_SERVE);
 
-// style loaders
-const cssLoaders = [
-	// 'css' loader resolves paths in CSS and adds assets as dependencies.
-	{
+const loaders = {
+	babelLoader: {
+		loader: 'babel-loader',
+	},
+	// 'css' loader resolves paths in CSS and adds assets as dependencies
+	cssLoader: {
 		loader: 'css-loader',
 		options: {
 			sourceMap: !isProduction,
@@ -23,8 +25,10 @@ const cssLoaders = [
 			url: false,
 		},
 	},
-	// 'postcss' loader automatically applies browser prefixes to our css.
-	{
+	// This loader extracts CSS from JS
+	miniCssExtractPluginLoader: MiniCssExtractPlugin.loader,
+	// 'postcss' loader automatically applies browser prefixes to our css
+	postcssLoader: {
 		loader: 'postcss-loader',
 		options: {
 			sourceMap: !isProduction,
@@ -34,7 +38,7 @@ const cssLoaders = [
 		},
 	},
 	// 'sass' loader converts our sass to css
-	{
+	sassLoader: {
 		loader: 'sass-loader',
 		options: {
 			sourceMap: !isProduction,
@@ -42,6 +46,17 @@ const cssLoaders = [
 			data: `$IS_DEBUG: ${!isProduction};`,
 		},
 	},
+	// Allows us to embed CSS into JavaScript
+	styleLoader: {
+		loader: 'style-loader',
+	},
+};
+
+// style loaders
+const cssLoaders = [
+	loaders.cssLoader,
+	loaders.postcssLoader,
+	loaders.sassLoader,
 ];
 
 // Base config
@@ -99,11 +114,11 @@ const config = {
 					{
 						// If the extension is .js.scss, leave the CSS embedded in the JS file
 						test: /\.js\.scss$/,
-						use: ['style-loader', ...cssLoaders],
+						use: [loaders.styleLoader, ...cssLoaders],
 					},
 					{
 						// Otherwise, extract the CSS into its own file
-						use: [MiniCssExtractPlugin.loader, ...cssLoaders],
+						use: [loaders.miniCssExtractPluginLoader, ...cssLoaders],
 					},
 				],
 			},
@@ -112,9 +127,7 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				},
+				use: loaders.babelLoader,
 			},
 		],
 	},
@@ -181,4 +194,7 @@ if (isProduction) {
 	};
 }
 
-module.exports = config;
+module.exports = {
+	config,
+	loaders,
+};
