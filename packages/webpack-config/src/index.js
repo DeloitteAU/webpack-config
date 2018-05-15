@@ -15,10 +15,15 @@ if (process.env.NODE_ENV) {
 	mode = 'development';
 }
 
-dd();
-console.log('Deloitte Digital Webpack Config');
-console.log('Current working directory:', process.cwd());
-console.log('Mode:', mode);
+if (!argv.nobranding) {
+	dd();
+	console.log('Deloitte Digital Webpack Config');
+}
+
+if (argv.verbose) {
+	console.log('Current working directory:', process.cwd());
+	console.log('Mode:', mode);
+}
 
 // style loaders
 const cssLoaders = [
