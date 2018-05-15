@@ -2,6 +2,7 @@
 
 ## Unpublished
 
+- Packages now expose loaders. Breaking change: config is now a property of the webpack-config import rather than the root object.
 - Bug fix: CSS Loader should not try to resolve url(), because this Webpack config does not process images.
 
 ## 0.0.4

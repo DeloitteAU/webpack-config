@@ -128,7 +128,7 @@ npm install @deloitte-digital-au/webpack-config --save-dev
 2. Add a `webpack.config.js` file which imports **Webpack config**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config'); 
+const { config } = require('@deloitte-digital-au/webpack-config'); 
 
 config.entry = {
     main: [
@@ -153,7 +153,7 @@ npm install @deloitte-digital-au/webpack-config-vuejs --save-dev
 2. Add a `webpack.config.js` file which imports **Webpack Config Vue js**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-vuejs');
+const { config } = require('@deloitte-digital-au/webpack-config-vuejs');
 
 config.entry = {
     main: [
@@ -178,7 +178,7 @@ npm install @deloitte-digital-au/webpack-config-react --save-dev
 2. Add a `webpack.config.js` file which imports **Webpack Config React**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-react');
+const { config } = require('@deloitte-digital-au/webpack-config-react');
 
 config.entry = {
     main: [
@@ -327,6 +327,17 @@ Or add a new plugin
 
 ```js
 config.plugins.push(/* NEW PLUGIN HERE*/);
+```
+
+You can change the settings for the preconfigured loaders by accessing the `loaders` property. For example:
+
+```js
+const { config, loaders } = require('@deloitte-digital-au/webpack-config');
+const path = require('path');
+
+loaders.sassLoader.options.includePaths = [path.resolve(__dirname, './my-unusual-include-path')];
+
+module.exports = config;
 ```
 
 ### SASS
