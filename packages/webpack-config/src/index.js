@@ -102,26 +102,19 @@ const config = {
 				parser: { requireEnsure: false },
 			},
 
-			// Style loaders
+			// Stylesheets - if the extension is .js.scss, leave the CSS embedded in the JS file
 			{
-				test: /\.scss$/,
-
-				// 'oneOf' will traverse all following loaders until one will
-				// match the requirements.
-				oneOf: [
-					{
-						// If the extension is .js.scss, leave the CSS embedded in the JS file
-						test: /\.js\.scss$/,
-						use: ['style-loader', ...cssLoaders],
-					},
-					{
-						// Otherwise, extract the CSS into its own file
-						use: [MiniCssExtractPlugin.loader, ...cssLoaders],
-					},
-				],
+				test: /\.js\.scss$/,
+				use: ['style-loader', ...cssLoaders],
 			},
 
-			// 'babel' loader transpiles our javascript to ensure browser compatability
+			// Stylesheets - if the extension is .scss, extract the CSS into its own file
+			{
+				test: /\.scss$/,
+				use: [MiniCssExtractPlugin.loader, ...cssLoaders],
+			},
+
+			// JavaScript - 'babel' loader transpiles our javascript to ensure browser compatability
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
