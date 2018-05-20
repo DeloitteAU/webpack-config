@@ -11,7 +11,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@deloitte-digital-au/webpack-config": "^0.0.5",
-    "babel-preset-react": "^6.24.1"
+    "@deloitte-digital-au/babel-preset-react": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"
