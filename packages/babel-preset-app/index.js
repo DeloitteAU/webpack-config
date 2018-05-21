@@ -1,5 +1,3 @@
-const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development';
-
 module.exports = function() {
 	return {
 
@@ -9,11 +7,11 @@ module.exports = function() {
 				{
 					// Lets not transform modules to commons js
 					modules: false,
-					// replaces the statement import "@babel/polyfill" or require("@babel/polyfill") 
+					// replaces the statement import "@babel/polyfill" or require("@babel/polyfill")
 					// with individual requires for @babel/polyfill based on browser environment.
 					useBuiltIns: 'entry',
 				},
-			]
+			],
 		],
 
 		plugins: [
@@ -63,5 +61,5 @@ module.exports = function() {
 				},
 			],
 		],
-	}
+	};
 };

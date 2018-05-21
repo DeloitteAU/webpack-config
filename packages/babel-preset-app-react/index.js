@@ -1,10 +1,10 @@
 const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development';
 
-module.exports = function () {
+module.exports = function() {
 	return {
 		presets: [
 			// Extends base presets
-			require("@deloitte-digital-au/babel-preset-app"),
+			require('@deloitte-digital-au/babel-preset-app'),
 			[
 				// Transforms JSX
 				require('@babel/preset-react').default,
@@ -27,5 +27,5 @@ module.exports = function () {
 				},
 			],
 		].filter(p => !!p), // Filter out any undefined plugin's
-	}
+	};
 };
