@@ -1,5 +1,5 @@
 {
-  "name": "@deloitte-digital-au/babel-preset",
+  "name": "@deloitte-digital-au/babel-preset-react",
   "version": "0.0.5",
   "description": "Babel Preset for Deloitte Digital React Projects",
   "main": "index.js",
