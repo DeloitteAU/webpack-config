@@ -148,7 +148,7 @@ Autoprefixer and Babel will refer to this `browserslist` property to determine t
 
 First install the Babel cli:
 
-`npm install babel-cli --save-dev`
+`npm install @babel/cli --save-dev`
 
 Then add a `.babelrc` file to the root of your project.
 
@@ -162,7 +162,7 @@ Define the standard preset in your babel options:
 
 ```js
 {
-	"presets": ["@deloitte-digital-au/babel-preset"]
+	"presets": ["@deloitte-digital-au/babel-preset-app"]
 }
 ```
 
@@ -172,7 +172,7 @@ Define the React preset in your babel options:
 
 ```js
 {
-	"presets": ["@deloitte-digital-au/babel-preset-react"]
+	"presets": ["@deloitte-digital-au/babel-preset-app-react"]
 }
 ```
 

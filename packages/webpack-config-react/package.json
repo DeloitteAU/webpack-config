@@ -10,8 +10,8 @@
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@deloitte-digital-au/webpack-config": "^0.0.5",
-    "@deloitte-digital-au/babel-preset-react": "^0.0.5"
+    "@deloitte-digital-au/babel-preset-app-react": "^0.0.5",
+    "@deloitte-digital-au/webpack-config": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"

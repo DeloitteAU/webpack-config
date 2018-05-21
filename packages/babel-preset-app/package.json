@@ -1,5 +1,5 @@
 {
-  "name": "@deloitte-digital-au/babel-preset",
+  "name": "@deloitte-digital-au/babel-preset-app",
   "version": "0.0.5",
   "description": "Babel Preset for Deloitte Digital Projects",
   "main": "index.js",
@@ -22,7 +22,6 @@
   "dependencies": {
     "@babel/core": "^7.0.0-beta.47",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.47",
-    "@babel/plugin-proposal-decorators": "^7.0.0-beta.47",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.47",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.47",
     "@babel/plugin-transform-destructuring": "^7.0.0-beta.47",

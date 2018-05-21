@@ -9,6 +9,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
+    "clean": "lerna clean --yes",
     "pretest": "lerna run --scope demo build",
     "test": "mocha test/*.js",
     "lint": "eslint ./packages --ext .js",

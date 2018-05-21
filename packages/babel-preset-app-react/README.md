@@ -11,7 +11,7 @@ Ract Babel preset used by Deloitte Digital for our modern web apps.
 To use, you will need to install the Babel cli:
 
 ```
-npm install babel-cli --save-dev 
+npm install @babel/cli --save-dev 
 ```
 
 > You may also like to set it up for a [tool of your choice](https://babeljs.io/docs/setup/).
@@ -19,14 +19,14 @@ npm install babel-cli --save-dev
 **Install @deloitte-digital-au/babel-preset-react**
 
 ```
-npm install @deloitte-digital-au/babel-preset-react --save-dev
+npm install @deloitte-digital-au/babel-preset-app-react --save-dev
 ```
 
 Then create a `.babelrc` in the root of your project:
 
 ```js
 {
-	"presets": ["@deloitte-digital-au/babel-preset-react"]
+	"presets": ["@deloitte-digital-au/babel-preset-app-react"]
 }
 ```
 
@@ -45,7 +45,7 @@ Then add the typescript preset to your `.babelrc`
 ```
 {
 	"presets": [
-		"@deloitte-digital-au/babel-preset",
+		"@deloitte-digital-au/babel-preset-app-react",
 		"@babel/preset-typescript"
 	]
 }
@@ -62,7 +62,7 @@ Then add the flow preset to your `.babelrc`
 ```
 {
 	"presets": [
-		"@deloitte-digital-au/babel-preset",
+		"@deloitte-digital-au/babel-preset-app-react",
 		"@babel/preset-flow"
 	]
 }

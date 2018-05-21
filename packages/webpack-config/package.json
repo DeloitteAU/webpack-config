@@ -12,9 +12,9 @@
   "dependencies": {
     "@deloitte-digital-au/eslint-config": "^3.4.0",
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
-    "@deloitte-digital-au/babel-preset": "^0.0.5",
+    "@deloitte-digital-au/babel-preset-app": "^0.0.5",
     "autoprefixer": "^8.3.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.0-beta",
     "clean-webpack-plugin": "^0.1.19",
     "colors": "^1.2.1",
     "css-loader": "^0.28.11",
