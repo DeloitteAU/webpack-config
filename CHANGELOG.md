@@ -2,6 +2,10 @@
 
 ## Unpublished
 
+## 0.0.7
+
+- Fixed missing `'@babel/runtime/regenerator'` issue
+
 ## 0.0.6
 
 - Upgraded to Babel 7
@@ -11,6 +15,36 @@
 - Destructuring is now supported out of the box
 - Generators is now supported out of the box
 - Babel env is now supported out of the box
+
+### 0.0.6 Breaking Changes
+
+**1.**
+
+You will need to make changes to your `.babelrc` or `babel` property in the package.json file.
+
+If not using React, Change:
+
+`presets: ["env"]`
+
+for `presets: ["@deloitte-digital-au/babel-preset-app"]`
+
+Or if using React, change:
+
+`presets: ["env", "react"]`
+
+for `presets: ["@deloitte-digital-au/babel-preset-app-react"]`
+
+**2.**
+
+Install babel 7 cli.
+
+`npm install @babel/cli --save-dev`
+
+**3.**
+
+Install the babel 7 polyfill if using a polyfill
+
+`npm i @babel/polyfill`
 
 ## 0.0.5
 
