@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/babel-preset-app",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Babel Preset for Deloitte Digital Projects",
   "main": "index.js",
   "repository": {
