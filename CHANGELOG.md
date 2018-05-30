@@ -2,7 +2,7 @@
 
 ## Unpublished
 
-## 0.0.7
+## 0.0.6
 
 - Upgraded to Babel 7
 - Added scoped babel preset packages
