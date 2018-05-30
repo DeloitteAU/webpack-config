@@ -2,6 +2,8 @@
 
 ## Unpublished
 
+## 0.0.7
+
 - Upgraded to Babel 7
 - Added scoped babel preset packages
 - Class properties is now supported out of the box

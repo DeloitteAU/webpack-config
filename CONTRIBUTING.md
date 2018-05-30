@@ -51,3 +51,17 @@ The core maintainers monitor pull request's whom will perform the reviews.
 - If you've fixed a bug or added a feature, add tests.
 - Ensure the tests pass (`npm run test`).
 - Make sure your code lints (`npm run lint`).
+
+## Publishing
+
+The project publishes 5 packages to npm:
+
+Instructions for publishing new releases:
+
+- Check out the `master` branch.
+- Do not manually change version numbers in `lerna.json` or `package.json` files (they are updated programatically).
+- Update the `CHANGELOG.md` file and add the changes to the git staging area. These changes will be included in the automatic commit that increments the version numbers. You don't need to commit them separately.
+- Run Lerna's publish command, and pass in your One Time Password for npm as an environment variable: `NPM_CONFIG_OTP=yourtoken lerna publish`.
+- Select the new version (or enter a custom one) adhering to the principles of [semantic versioning](https://semver.org/).
+
+Lerna will create a new release of the packages that have been updated. It will create a new git commit/tag and publish to npm.

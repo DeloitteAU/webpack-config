@@ -1,3 +1,4 @@
 # Deloitte Digital Webpack Config for Vue.js
 
-Please read the [installation instructions](https://github.com/DeloitteDigitalAPAC/webpack-config) to configure this package.
+Please read the [installation instructions](https://github.com/DeloitteDigitalAPAC/webpack-config) to configure
+NPM_CONFIG_OTP=this package.
