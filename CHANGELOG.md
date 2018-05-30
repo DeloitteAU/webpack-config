@@ -16,7 +16,7 @@
 - Generators is now supported out of the box
 - Babel env is now supported out of the box
 
-### 0.0.6 Breaking Changes
+### Breaking Changes
 
 **1.**
 
@@ -42,9 +42,11 @@ Install babel 7 cli.
 
 **3.**
 
-Install the babel 7 polyfill if using a polyfill
+Upgrade to the babel 7 polyfill if you are using a polyfill
 
-`npm i @babel/polyfill`
+`npm uninstall babel-polyfill --save-dev`
+
+`npm install @babel/polyfill --save-dev`
 
 ## 0.0.5
 
