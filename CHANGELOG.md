@@ -2,6 +2,14 @@
 
 ## Unpublished
 
+- Upgraded to Babel 7
+- Added scoped babel preset packages
+- Class properties is now supported out of the box
+- Webpack dynamic imports is now supported out of the box [#23](https://github.com/DeloitteDigitalAPAC/webpack-config/issues/23)
+- Destructuring is now supported out of the box
+- Generators is now supported out of the box
+- Babel env is now supported out of the box
+
 ## 0.0.5
 
 - Added support for environment to be defined in NODE_ENV environment variable or Webpack CLI's `--mode` flag.
