@@ -2,6 +2,8 @@
 
 ## Unpublished
 
+- Updated Bable CLI to v7.0.0-beta.51
+
 ## 0.0.7
 
 - Fixed missing `'@babel/runtime/regenerator'` issue
