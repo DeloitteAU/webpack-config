@@ -1,0 +1,25 @@
+{
+  "name": "demo-react-typescript",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-serve --config webpack.config.js --open"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.47",
+    "@types/react": "^16.4.1",
+    "@types/react-dom": "^16.0.6",
+    "react-dev-utils": "^5.0.1",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@deloitte-digital-au/webpack-config-react-typescript": "^0.0.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "version": "0.0.1"
+}

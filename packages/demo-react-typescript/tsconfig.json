@@ -1,0 +1,48 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"removeComments": false,
+		"preserveConstEnums": false,
+		"target": "es5",
+		"newLine": "LF",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"emitDecoratorMetadata": false,
+		"experimentalDecorators": true,
+		"lib": [ "es2017", "dom" ],
+		"pretty": false,
+		"stripInternal": true,
+		"noEmitOnError": true,
+		"strictNullChecks": true,
+		"allowUnreachableCode": false,
+		"alwaysStrict": true,
+		"noFallthroughCasesInSwitch": true,
+		"downlevelIteration": false,
+		"allowJs": true,
+		"jsx": "react",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"baseUrl": ".",
+		"paths":{
+			"~/*": ["./src/*"],
+			"*":[
+				".types/*"
+			]
+		},
+		"typeRoots": [
+			".types/",
+			"node_modules/@types/"
+		]
+	},
+	"compileOnSave": true,
+	"exclude": [
+		"node_modules",
+		"dist",
+		"scripts"
+	],
+	"include": [
+		"src",
+		".types/*"
+	]
+}
