@@ -8,11 +8,15 @@ module.exports = {
 	overrides: [
 		{
 			files: [
-				'test/test.js',
+				'tests/**/*.js',
 			],
 			env: {
 				mocha: true,
 			},
+			globals: {
+				cy: true,
+				expect: true,
+			}
 		},
 	],
 };

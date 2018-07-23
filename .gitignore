@@ -3,3 +3,5 @@ lerna-debug.log
 .idea
 packages/*/package-lock.json
 packages/*/dist*
+tests/cypress/screenshots
+tests/cypress/videos

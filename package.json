@@ -11,17 +11,23 @@
     "bootstrap": "lerna bootstrap --hoist",
     "clean": "lerna clean --yes",
     "pretest": "lerna run --scope demo build",
-    "test": "mocha test/*.js",
+    "test:mocha": "mocha tests/unit/*.js",
+    "test:cypress": "cypress run",
+    "test:cypress-ci": "npm run start:all & wait-on http://localhost:8085 http://localhost:8086 && npm run test:cypress",
+    "test": "npm run test:mocha && npm run test:cypress-ci",
     "lint": "eslint ./packages --ext .js",
-    "start": "lerna run start --scope demo --stream",
-    "start:react": "lerna run start --scope demo-react --stream",
-    "start:vuejs": "lerna run start --scope demo-vuejs --stream"
+    "start:all": "lerna run start --scope demo-* --parallel",
+    "start:demo": "lerna run start --scope demo --stream",
+    "start:demo-react": "lerna run start --scope demo-react --stream",
+    "start:demo-vuejs": "lerna run start --scope demo-vuejs --stream"
   },
   "devDependencies": {
     "@deloitte-digital-au/eslint-config": "^3.4.0",
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
+    "cypress": "^3.0.2",
     "lerna": "^2.11.0",
     "mocha": "^5.1.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "wait-on": "^2.1.0"
   }
 }

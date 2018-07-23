@@ -5,7 +5,7 @@ const rimraf = require('rimraf');
 const { exec } = require('child_process');
 
 const cleanDist = () => {
-	rimraf.sync(path.join(__dirname, '../packages/demo/dist-custom-dir'));
+	rimraf.sync(path.join(__dirname, '../../packages/demo/dist-custom-dir'));
 };
 
 cleanDist();
@@ -15,7 +15,7 @@ describe('Build', () => {
 		this.timeout(6000);
 
 		const child = exec('npm run build', {
-			cwd: path.resolve(__dirname, '../packages/demo'),
+			cwd: path.resolve(__dirname, '../../packages/demo'),
 		});
 		// child.stdout.pipe(process.stdout);
 		child.stderr.pipe(process.stderr);
@@ -26,7 +26,7 @@ describe('Build', () => {
 
 	const checkBuild = ({ entry, entryTokens}) => {
 		describe(entry, () => {
-			const entryPath = path.join(__dirname, '../packages/demo/dist-custom-dir', entry);
+			const entryPath = path.join(__dirname, '../../packages/demo/dist-custom-dir', entry);
 
 			it('should be included in artefact', done => {
 				fs.access(entryPath, fs.constants.R_OK, err => {
@@ -63,7 +63,7 @@ describe('Build', () => {
 
 	describe('include.js', () => {
 		it('should not be included in artefact', done => {
-			fs.access(path.join(__dirname, '../packages/demo/dist-custom-dir', 'include.js'), fs.constants.R_OK, err => {
+			fs.access(path.join(__dirname, '../../packages/demo/dist-custom-dir', 'include.js'), fs.constants.R_OK, err => {
 				assert.notEqual(err, null);
 				done();
 			});
@@ -77,7 +77,7 @@ describe('Build', () => {
 
 	describe('import.css', () => {
 		it('should not be included in artefact', done => {
-			fs.access(path.join(__dirname, '../packages/demo/dist-custom-dir', 'import.css'), fs.constants.R_OK, err => {
+			fs.access(path.join(__dirname, '../../packages/demo/dist-custom-dir', 'import.css'), fs.constants.R_OK, err => {
 				assert.notEqual(err, null);
 				done();
 			});
