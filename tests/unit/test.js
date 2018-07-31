@@ -24,7 +24,7 @@ describe('Build', () => {
 		});
 	});
 
-	const checkBuild = ({ entry, entryTokens}) => {
+	const checkBuild = ({ entry, entryShouldContain, entryShouldNotContain}) => {
 		describe(entry, () => {
 			const entryPath = path.join(__dirname, '../../packages/demo/dist-custom-dir', entry);
 
@@ -47,9 +47,15 @@ describe('Build', () => {
 				});
 			});
 
-			entryTokens.forEach(token => {
+			entryShouldContain.forEach(token => {
 				it(`should contain text "${token}"`, () => {
 					assert.notStrictEqual(data.indexOf(token), -1);
+				});
+			});
+
+			entryShouldNotContain.forEach(token => {
+				it(`should not contain text "${token}"`, () => {
+					assert.strictEqual(data.indexOf(token), -1);
 				});
 			});
 
@@ -58,7 +64,8 @@ describe('Build', () => {
 
 	checkBuild({
 		entry: 'main.bundle.js',
-		entryTokens: ['Bonjour', 'Hola'],
+		entryShouldContain: ['Bonjour', 'Hola'],
+		entryShouldNotContain: ['This comment should be removed'],
 	});
 
 	describe('include.js', () => {
@@ -72,7 +79,8 @@ describe('Build', () => {
 
 	checkBuild({
 		entry: 'main.css',
-		entryTokens: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:gray}'],
+		entryShouldContain: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:gray}'],
+		entryShouldNotContain: [],
 	});
 
 	describe('import.css', () => {

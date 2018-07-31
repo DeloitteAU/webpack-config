@@ -1,3 +1,5 @@
 import './include.js';
 
-console.log('Bonjour from script.js');
+/* This comment should be removed */
+
+console.log('Bonjour from script.js BOO');

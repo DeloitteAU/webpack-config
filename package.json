@@ -10,7 +10,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "clean": "lerna clean --yes",
-    "pretest": "lerna run --scope demo build",
+    "pretest:mocha": "lerna run --scope demo build",
     "test:mocha": "mocha tests/unit/*.js",
     "test:cypress": "cypress run",
     "test:cypress-ci": "npm run start:all & wait-on http://localhost:8085 http://localhost:8086 && npm run test:cypress",
