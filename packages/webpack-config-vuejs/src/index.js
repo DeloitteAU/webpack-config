@@ -23,12 +23,17 @@ const mergedConfig = merge.smart(config, {
 });
 
 // webpack-merge does not support merging rules with the `oneOf` property,
-// so we have to manually update the SCSS loader to the merged config
+// so we have to manually update the CSS post loader
 mergedConfig.module.rules.find(rule => {
-	return (String(rule.test) === '/\\.scss$/' && rule.hasOwnProperty('oneOf'));
+	return (String(rule.test) === '/(\\.css)|(\\.scss)$/' && rule.hasOwnProperty('oneOf'));
 }).oneOf.splice(0, 0, {
 	issuer: /\.vue$/,
 	use: 'vue-style-loader',
 });
+
+// Object.defineProperty(RegExp.prototype, 'toJSON', {
+// 	value: RegExp.prototype.toString,
+// });
+// console.log(JSON.stringify(mergedConfig, null, ' '));
 
 module.exports = mergedConfig;

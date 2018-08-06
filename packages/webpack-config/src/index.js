@@ -71,10 +71,10 @@ const config = {
 			},
 
 			// Custom CSS loaders which apply conditionally
-			// If SCSS is imported into .js, leave the CSS embedded in the JS and dynamically inject into the web page
+			// If a stylesheet is imported into JavaScript, leave the CSS embedded in the JS and dynamically inject into the web page
 			// Otherwise, extract the CSS into its own file
 			{
-				test: /\.scss$/,
+				test: /(\.css)|(\.scss)$/,
 				oneOf: [
 					{
 						issuer: /\.js$/,
@@ -85,20 +85,23 @@ const config = {
 				],
 			},
 
-			// Base SCSS loaders, which should apply to all SCSS
+			// CSS loaders, which should apply to all CSS, including SCSS
+			// Note: /(\.css)|(\.scss)$/ and /\.[s]?css$/ match the same files
+			// We use seperate regular expressions to prevent webpack-merge from merging the rules together
 			{
-				test: /(\.scss)$/,
+				test: /\.[s]?css$/,
 				use: [
-					// 'css' loader resolves paths in CSS and adds assets as dependencies.
+					// css-loader resolves paths in CSS and adds assets as dependencies.
 					{
 						loader: 'css-loader',
 						options: {
 							sourceMap: (mode === 'development'),
 							minimize: (mode === 'production'),
 							url: false,
+							importLoaders: 1,
 						},
 					},
-					// 'postcss' loader automatically applies browser prefixes to our css.
+					// postcss-loader automatically applies browser prefixes to our css.
 					{
 						loader: 'postcss-loader',
 						options: {
@@ -108,7 +111,13 @@ const config = {
 							],
 						},
 					},
-					// 'sass' loader converts our sass to css
+				],
+			},
+
+			// sass-loader converts our sass to css
+			{
+				test: /\.scss$/,
+				use: [
 					{
 						loader: 'sass-loader',
 						options: {
@@ -120,7 +129,7 @@ const config = {
 				],
 			},
 
-			// JavaScript - 'babel' loader transpiles our javascript to ensure browser compatability
+			// JavaScript - babel-loader transpiles our javascript to ensure browser compatability
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,

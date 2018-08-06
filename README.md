@@ -306,12 +306,14 @@ const mergedConfig = merge.smart(config, {
 });
 ```
 
-### SASS
+### Stylesheets
 
-Stylesheets will be extracted into standalone CSS files, or embedded into JavaScript files, depending on how you import them. This gives you control over the delivery of your CSS.
+Stylesheets will be extracted into standalone CSS files, or embedded into JavaScript files, depending on how you import them. This gives you control over the delivery of your CSS. In general, it is recommended to deliver your CSS as a `.css` file, to avoid a flash of unstyled content. However, if the styles relate specifically to a JavaScript component it can make sense to deliver them in the same JavaScript file.
 
-- If an `.scss` file is added as an entry point in `webpack.config.js` (or imported into another SCSS file that is), the CSS will be extracted to a traditional standalone CSS file.
-- If an `.scss` file is imported into a `.js` file or a `.vue` single file component, the CSS will be embedded in the JavaScript and dynamically injected into the web page.
+- If a `.css` or `.scss` file is added as an entry point in `webpack.config.js` (or imported into another SCSS file that is), the CSS will be extracted to a traditional standalone CSS file.
+- If a `.css` or `.scss` file is imported into a `.js` file or a `.vue` single file component, the CSS will be embedded in the JavaScript and dynamically injected into the web page with style-loader.
+
+Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.css` will be extracted into a CSS file and `b.css` will be embedded in JavaScript, because Webpack's `issuer` rule only looks at the file which made the import, not at the original entry point. If `a` and `b` were SCSS files, they would both be extracted to CSS, because unlike **css-loader**, **sass-loader** concatenates files after resolving `@import` statements.
 
 **[⬆ back to top](#table-of-contents)**
 
