@@ -25,38 +25,6 @@ if (argv.verbose) {
 	console.log('Mode:', mode);
 }
 
-// style loaders
-const cssLoaders = [
-	// 'css' loader resolves paths in CSS and adds assets as dependencies.
-	{
-		loader: 'css-loader',
-		options: {
-			sourceMap: (mode === 'development'),
-			minimize: (mode === 'production'),
-			url: false,
-		},
-	},
-	// 'postcss' loader automatically applies browser prefixes to our css.
-	{
-		loader: 'postcss-loader',
-		options: {
-			sourceMap: (mode === 'development'),
-			plugins: () => [
-				autoprefixer,
-			],
-		},
-	},
-	// 'sass' loader converts our sass to css
-	{
-		loader: 'sass-loader',
-		options: {
-			sourceMap: (mode === 'development'),
-			// Set scss debug flag
-			data: `$IS_DEBUG: ${(mode === 'development')};`,
-		},
-	},
-];
-
 // Base config
 // https://webpack.js.org/configuration/#options
 const config = {
@@ -102,25 +70,61 @@ const config = {
 				parser: { requireEnsure: false },
 			},
 
-			// Stylesheets - if the extension is .js.scss, leave the CSS embedded in the JS file
-			{
-				test: /\.js\.scss$/,
-				use: ['style-loader', ...cssLoaders],
-			},
-
-			// Stylesheets - if the extension is .scss, extract the CSS into its own file
+			// Custom CSS loaders which apply conditionally
+			// If SCSS is imported into .js, leave the CSS embedded in the JS and dynamically inject into the web page
+			// Otherwise, extract the CSS into its own file
 			{
 				test: /\.scss$/,
-				use: [MiniCssExtractPlugin.loader, ...cssLoaders],
+				oneOf: [
+					{
+						issuer: /\.js$/,
+						use: 'style-loader',
+					}, {
+						use: MiniCssExtractPlugin.loader,
+					},
+				],
+			},
+
+			// Base SCSS loaders, which should apply to all SCSS
+			{
+				test: /(\.scss)$/,
+				use: [
+					// 'css' loader resolves paths in CSS and adds assets as dependencies.
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: (mode === 'development'),
+							minimize: (mode === 'production'),
+							url: false,
+						},
+					},
+					// 'postcss' loader automatically applies browser prefixes to our css.
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: (mode === 'development'),
+							plugins: () => [
+								autoprefixer,
+							],
+						},
+					},
+					// 'sass' loader converts our sass to css
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: (mode === 'development'),
+							// Set scss debug flag
+							data: `$IS_DEBUG: ${(mode === 'development')};`,
+						},
+					},
+				],
 			},
 
 			// JavaScript - 'babel' loader transpiles our javascript to ensure browser compatability
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				},
+				use: 'babel-loader',
 			},
 		],
 	},

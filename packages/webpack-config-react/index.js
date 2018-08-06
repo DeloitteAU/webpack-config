@@ -1,17 +1,19 @@
-const path = require('path');
 const config = require('@deloitte-digital-au/webpack-config');
+const merge = require('webpack-merge');
 
-config.module.rules.push({
-	test: /\.jsx?$/,
-	loader: 'babel-loader',
-	exclude: /node_modules/,
+const mergedConfig = merge.smart(config, {
+	module: {
+		rules: [
+			{
+				test: /\.jsx?$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/,
+			},
+		],
+	},
+	resolve: {
+		extensions: ['.jsx'],
+	},
 });
 
-config.resolve = {
-	alias: {
-		'~': path.resolve(process.cwd(), 'src'),
-	},
-	extensions: ['.js', '.jsx', '.json', '.scss'],
-};
-
-module.exports = config;
+module.exports = mergedConfig;
