@@ -5,3 +5,4 @@ packages/*/package-lock.json
 packages/*/dist*
 tests/cypress/screenshots
 tests/cypress/videos
+compilation-stats.json

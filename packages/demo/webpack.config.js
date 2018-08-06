@@ -1,13 +1,18 @@
 const config = require('@deloitte-digital-au/webpack-config');
+const merge = require('webpack-merge');
 const path = require('path');
 
-config.output.path = path.resolve(__dirname, 'dist-custom-dir');
+const mergedConfig = merge.smart(config, {
+	entry: {
+		main: [
+			'./src/script.js',
+			'./src/style.css',
+			'./src/style.scss',
+		],
+	},
+	output: {
+		path: path.resolve(__dirname, 'dist-custom-dir'),
+	},
+});
 
-config.entry = {
-	main: [
-		'./src/script.js',
-		'./src/style.scss',
-	],
-};
-
-module.exports = config;
+module.exports = mergedConfig;

@@ -1,9 +1,12 @@
 const config = require('@deloitte-digital-au/webpack-config-react');
+const merge = require('webpack-merge');
 
-config.entry = {
-	main: [
-		'./src/index.jsx',
-	],
-};
+const mergedConfig = merge.smart(config, {
+	entry: {
+		main: [
+			'./src/index.jsx',
+		],
+	},
+});
 
-module.exports = config;
+module.exports = mergedConfig;

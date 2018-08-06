@@ -2,7 +2,7 @@
   "name": "demo",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --nobranding --profile --json > compilation-stats.json",
     "start": "webpack --mode development --watch"
   },
   "babel": {

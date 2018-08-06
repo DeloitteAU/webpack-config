@@ -10,7 +10,6 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "clean": "lerna clean --yes",
-    "pretest:mocha": "lerna run --scope demo build",
     "test:mocha": "mocha tests/unit/*.js",
     "test:cypress": "cypress run",
     "test:cypress-ci": "npm run start:all & wait-on http://localhost:8085 http://localhost:8086 && npm run test:cypress",
@@ -19,7 +18,11 @@
     "start:all": "lerna run start --scope demo-* --parallel",
     "start:demo": "lerna run start --scope demo --stream",
     "start:demo-react": "lerna run start --scope demo-react --stream",
-    "start:demo-vuejs": "lerna run start --scope demo-vuejs --stream"
+    "start:demo-vuejs": "lerna run start --scope demo-vuejs --stream",
+    "build:all": "lerna run build --scope demo*",
+    "build:demo": "lerna run build --scope demo",
+    "build:demo-react": "lerna run build --scope demo-react",
+    "build:demo-vuejs": "lerna run build --scope demo-vuejs"
   },
   "devDependencies": {
     "@deloitte-digital-au/eslint-config": "^3.4.0",
