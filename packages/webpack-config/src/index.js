@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const dd = require('./dd.js');
 
 let mode = 'production';
@@ -27,7 +28,7 @@ if (argv.verbose) {
 
 // Base config
 // https://webpack.js.org/configuration/#options
-const config = {
+const baseConfig = {
 
 	// Chosen mode tells webpack to use its built-in optimizations accordingly.
 	mode,
@@ -133,7 +134,7 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: 'babel-loader',
+				use: ['babel-loader'],
 			},
 		],
 	},
@@ -152,14 +153,14 @@ const config = {
 };
 
 if (process.env.WEBPACK_SERVE) {
-	config.serve = {
+	baseConfig.serve = {
 		// Silence WebpackServer's own logs since they're generally not useful.
 		logLevel: 'error',
 
 		hot: true,
 
 		dev: {
-			get publicPath() { return config.output.publicPath; },
+			get publicPath() { return baseConfig.output.publicPath; },
 			set publicPath(val) {
 				throw new Error('serve.dev is immutable. Please modify "output.publicPath" instead.');
 			},
@@ -167,10 +168,10 @@ if (process.env.WEBPACK_SERVE) {
 	};
 } else {
 	// Clean the output directory before a build
-	config.plugins.push(new CleanWebpackPlugin(['*'], {
+	baseConfig.plugins.push(new CleanWebpackPlugin(['*'], {
 		get root() {
 			// CleanWebpackPlugin does not provide an option for reading from output.path
-			const pathToDelete = config.output.path;
+			const pathToDelete = baseConfig.output.path;
 			const root = process.cwd();
 			if (pathToDelete.indexOf(root) === -1) {
 				throw 'output.path must be inside the project root';
@@ -186,10 +187,22 @@ if (process.env.WEBPACK_SERVE) {
 
 if (mode === 'development') {
 	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
-	config.devtool = 'cheap-module-source-map';
+	baseConfig.devtool = 'cheap-module-source-map';
 
 	// Add module names to factory functions so they appear in browser profiler.
-	config.plugins.push(new webpack.NamedModulesPlugin());
+	baseConfig.plugins.push(new webpack.NamedModulesPlugin());
 }
 
-module.exports = config;
+const mergeConfig = (a, b) => {
+	return merge.smart(a, (typeof b === 'function') ? b({ mode }) : b);
+};
+
+const createConfig = userConfig => {
+	return mergeConfig(baseConfig, userConfig);
+};
+
+module.exports = {
+	baseConfig,
+	createConfig,
+	mergeConfig,
+};

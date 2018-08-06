@@ -1,19 +1,28 @@
-const config = require('@deloitte-digital-au/webpack-config');
-const merge = require('webpack-merge');
+const { baseConfig, mergeConfig } = require('@deloitte-digital-au/webpack-config');
 
-const mergedConfig = merge.smart(config, {
-	module: {
-		rules: [
-			{
-				test: /\.jsx?$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/,
-			},
-		],
-	},
-	resolve: {
-		extensions: ['.jsx'],
-	},
+const reactConfig = mergeConfig(baseConfig, ({ mode }) => {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.jsx?$/,
+					loader: ['babel-loader'],
+					exclude: /node_modules/,
+				},
+			],
+		},
+		resolve: {
+			extensions: ['.jsx'],
+		},
+	};
 });
 
-module.exports = mergedConfig;
+const createConfig = userConfig => {
+	return mergeConfig(reactConfig, userConfig);
+};
+
+module.exports = {
+	baseConfig: reactConfig,
+	createConfig,
+	mergeConfig,
+};

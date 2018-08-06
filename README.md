@@ -59,21 +59,18 @@ other Deloitte Digital FED projects.
 npm install @deloitte-digital-au/webpack-config --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack config** and [merges](https://github.com/survivejs/webpack-merge) in the customisations required for your project:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack config**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config'); 
-const merge = require('webpack-merge'); 
+const { createConfig } = require('@deloitte-digital-au/webpack-config'); 
 
-const mergedConfig = merge.smart(config, {
+module.exports = createConfig({
     entry: {
         main: [
             './src/index.js',
         ],
     },
 });
-
-module.exports = mergedConfig;
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -87,21 +84,18 @@ module.exports = mergedConfig;
 npm install @deloitte-digital-au/webpack-config-vuejs --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack Config Vue js** and [merges](https://github.com/survivejs/webpack-merge) in the customisations required for your project:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack Config Vue js**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-vuejs');
-const merge = require('webpack-merge'); 
+const { createConfig } = require('@deloitte-digital-au/webpack-config-vuejs');
 
-const mergedConfig = merge.smart(config, {
+module.exports = createConfig({
     entry: {
         main: [
             './src/index.js',
         ],
     },
 });
-
-module.exports = mergedConfig;
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -115,21 +109,18 @@ module.exports = mergedConfig;
 npm install @deloitte-digital-au/webpack-config-react --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack Config React** and [merges](https://github.com/survivejs/webpack-merge) in the customisations required for your project:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack Config React**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-react');
-const merge = require('webpack-merge'); 
+const { createConfig } = require('@deloitte-digital-au/webpack-config-react');
 
-const mergedConfig = merge.smart(config, {
+module.exports = createConfig({
     entry: {
         main: [
             './src/index.js',
         ],
     },
 });
-
-module.exports = mergedConfig;
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -280,15 +271,16 @@ You can run the linters individually with: `npm run lint:js` and `npm run lint:s
 
 ## Options
 
-### How to customise the webpack config
+### How to customise the Webpack config
 
-`@deloitte-digital-au/webpack-config` returns a [preconfigured Webpack configuration](https://github.com/DeloitteDigitalAPAC/webpack-config/blob/master/packages/webpack-config/src/index.js). 
-You can [merge](https://github.com/survivejs/webpack-merge) in customisations as you need. For example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
+`@deloitte-digital-au/webpack-config` includes a [preconfigured base Webpack configuration](https://github.com/DeloitteDigitalAPAC/webpack-config/blob/master/packages/webpack-config/src/index.js).
 
-You can put multiple source files into one bundle:
+The `createConfig` function allows you extend this base configuration with the customisations required for your project. Behind the scenes, the extension of the base config with the custom config is achieved using [Smart Merging](https://github.com/survivejs/webpack-merge#smart-merging).
+
+**Here is an example of adding an [entry](https://webpack.js.org/configuration/entry/) property:**
 
 ```js
-const mergedConfig = merge.smart(config, {
+createConfig({
     entry: {
         main: [
             './src/index.js',
@@ -298,11 +290,52 @@ const mergedConfig = merge.smart(config, {
 });
 ```
 
-Or add a new plugin
+**Adding a plugin:**
 
 ```js
-const mergedConfig = merge.smart(config, {
+createConfig({
     plugins: [/* NEW PLUGIN HERE*/],
+});
+```
+
+**Adding a loader:**
+
+When adding a loader, modules with matching rules will be merged into a single module.
+
+```js
+createConfig({
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'custom-js-loader',
+            },
+        ],
+    },
+});
+```
+
+**Accessing environment variables**
+
+The `createConfig` method will also accept a function that returns a configuration object. The function will be called with an argument containing an object with a `mode` property to indicate whether Webpack is running in `production` or `development` mode.
+
+```js
+createConfig(({ mode }) => {
+    return {
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    use: {
+                        loader: 'custom-js-loader',
+                        options: {
+                            sourceMap: (mode === 'development'),
+                        },
+                    }
+                },
+            ],
+        },
+    }
 });
 ```
 
@@ -423,7 +456,7 @@ If you define an entry with CSS but no JavaScript, Webpack will still output a (
 along with the CSS. For example if you did this:
 
 ```js
-const mergedConfig = merge.smart(config, {
+createConfig({
     entry: {
         main: [
             './script.js',
@@ -444,7 +477,7 @@ Then three files would be generated:
 To avoid this it is recommended to attach your CSS to an entry that also has JavaScript. For example:
 
 ```js
-const mergedConfig = merge.smart(config, {
+createConfig({
     entry: {
         main: [
             './script.js',
