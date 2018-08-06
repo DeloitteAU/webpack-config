@@ -2,5 +2,11 @@
   "extends": [
     "config:base",
     ":preserveSemverRanges"
+  ],
+  "packageRules": [
+    {
+      "extends": "monorepo:babel",
+      "groupName": "babel monorepo"
+    }
   ]
 }
