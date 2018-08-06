@@ -15,7 +15,6 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.47",
     "@deloitte-digital-au/babel-preset-app": "^0.0.7",
     "@deloitte-digital-au/webpack-config-vuejs": "^0.0.7"
   },
