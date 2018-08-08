@@ -1,8 +1,53 @@
 # Changelog
 
-## Unpublished
+## 1.0.0
 
-- Updated Bable CLI to v7.0.0-beta.51
+- Upgraded API to expose `createConfig` function (see breaking changes below)
+- Updated loaders for CSS delivery (`mini-css-extract-plugin-loader` vs `style-loader`) (see breaking changes below)
+- Added loaders for CSS files (previously only SCSS files were supported)
+- Improved unit tests for `build`
+- Added functional tests for `watch`
+- Updated dependency vue-loader to v15
+- Update babel monorepo dependencies to v7.0.0-beta.55
+- Update dependency autoprefixer to v9
+
+### Breaking Changes
+
+**1.**
+
+Previously we exported a single config object. Now we export `{ baseConfig, createConfig, mergeConfig }`.
+
+**Previously, the base config was extended like this:**
+
+```js
+const config = require('@deloitte-digital-au/webpack-config');
+
+config.entry = {
+    main: [
+        './src/index.js',
+    ],
+};
+
+module.exports = config;
+```
+
+**Now, the base config is extended like this:**
+
+```js
+const { createConfig } = require('@deloitte-digital-au/webpack-config');
+
+module.exports = createConfig({
+    entry: {
+        main: [
+            './src/index.js',
+        ],
+    },
+});
+```
+
+**2.**
+
+The module rule matching files with an extension of `.js.scss` has been removed. If you would like your CSS to be embedded into a JavaScript file and served with `style-loader`, simply `import` it into a JavaScript file. If you would like your CSS to be extracted to a CSS file, add it to an entry point or `@import` it into another CSS / SCSS file.
 
 ## 0.0.7
 
