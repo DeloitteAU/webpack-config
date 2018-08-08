@@ -15,11 +15,11 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@deloitte-digital-au/babel-preset-app": "^0.0.7",
-    "@deloitte-digital-au/webpack-config-vuejs": "^0.0.7"
+    "@deloitte-digital-au/babel-preset-app": "^1.0.0",
+    "@deloitte-digital-au/webpack-config-vuejs": "^1.0.0"
   },
   "dependencies": {
     "vue": "^2.5.16"
   },
-  "version": "0.0.7"
+  "version": "1.0.0"
 }
