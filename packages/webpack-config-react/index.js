@@ -1,17 +1,28 @@
-const path = require('path');
-const config = require('@deloitte-digital-au/webpack-config');
+const { baseConfig, mergeConfig } = require('@deloitte-digital-au/webpack-config');
 
-config.module.rules.push({
-	test: /\.jsx?$/,
-	loader: 'babel-loader',
-	exclude: /node_modules/,
+const reactConfig = mergeConfig(baseConfig, ({ mode }) => {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.jsx?$/,
+					loader: ['babel-loader'],
+					exclude: /node_modules/,
+				},
+			],
+		},
+		resolve: {
+			extensions: ['.jsx'],
+		},
+	};
 });
 
-config.resolve = {
-	alias: {
-		'~': path.resolve(process.cwd(), 'src'),
-	},
-	extensions: ['.js', '.jsx', '.json', '.scss'],
+const createConfig = userConfig => {
+	return mergeConfig(reactConfig, userConfig);
 };
 
-module.exports = config;
+module.exports = {
+	baseConfig: reactConfig,
+	createConfig,
+	mergeConfig,
+};

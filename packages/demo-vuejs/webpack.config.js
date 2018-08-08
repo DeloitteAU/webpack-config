@@ -1,9 +1,12 @@
-const config = require('@deloitte-digital-au/webpack-config-vuejs');
+const { createConfig } = require('@deloitte-digital-au/webpack-config-vuejs');
 
-config.entry = {
-	main: [
-		'./src/index.js',
-	],
-};
-
-module.exports = config;
+module.exports = createConfig(({ mode }) => {
+	return {
+		entry: {
+			main: [
+				'./src/index.js',
+				'./src/style.scss',
+			],
+		},
+	};
+});

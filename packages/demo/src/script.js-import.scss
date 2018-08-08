@@ -1,0 +1,5 @@
+@import "script.js-import.scss-import.scss";
+
+body::after {
+	content: "Here is some SCSS in JS";
+}

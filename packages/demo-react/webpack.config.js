@@ -1,9 +1,11 @@
-const config = require('@deloitte-digital-au/webpack-config-react');
+const { createConfig } = require('@deloitte-digital-au/webpack-config-react');
 
-config.entry = {
-	main: [
-		'./src/index.jsx',
-	],
-};
-
-module.exports = config;
+module.exports = createConfig(({ mode }) => {
+	return {
+		entry: {
+			main: [
+				'./src/index.jsx',
+			],
+		},
+	};
+});

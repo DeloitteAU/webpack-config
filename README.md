@@ -59,18 +59,18 @@ other Deloitte Digital FED projects.
 npm install @deloitte-digital-au/webpack-config --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack config**:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack config**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config'); 
+const { createConfig } = require('@deloitte-digital-au/webpack-config'); 
 
-config.entry = {
-    main: [
-        './src/index.js',
-    ],
-};
-
-module.exports = config;
+module.exports = createConfig({
+    entry: {
+        main: [
+            './src/index.js',
+        ],
+    },
+});
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -84,18 +84,18 @@ module.exports = config;
 npm install @deloitte-digital-au/webpack-config-vuejs --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack Config Vue js**:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack Config Vue js**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-vuejs');
+const { createConfig } = require('@deloitte-digital-au/webpack-config-vuejs');
 
-config.entry = {
-    main: [
-        './src/index.js',
-    ],
-};
-
-module.exports = config;
+module.exports = createConfig({
+    entry: {
+        main: [
+            './src/index.js',
+        ],
+    },
+});
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -109,18 +109,18 @@ module.exports = config;
 npm install @deloitte-digital-au/webpack-config-react --save-dev
 ```
 
-2. Add a `webpack.config.js` file which imports **Webpack Config React**:
+2. Add a `webpack.config.js` file which imports `createConfig` from **Webpack Config React**:
 
 ```js
-const config = require('@deloitte-digital-au/webpack-config-react');
+const { createConfig } = require('@deloitte-digital-au/webpack-config-react');
 
-config.entry = {
-    main: [
-        './src/index.js',
-    ],
-};
-
-module.exports = config;
+module.exports = createConfig({
+    entry: {
+        main: [
+            './src/index.js',
+        ],
+    },
+});
 ```
 
 3. Complete the [Getting Started](#getting-started) guide.
@@ -255,7 +255,7 @@ It correctly bundles in development mode, including source maps.
 
 ### `npm run lint`
 
-Lint's the JavaScript and Scss files in the src directory.
+Lints the JavaScript and SCSS files in the src directory.
 
 If errors are reported, ESLint may be able to fix them automatically for you. Just run:
 
@@ -271,32 +271,82 @@ You can run the linters individually with: `npm run lint:js` and `npm run lint:s
 
 ## Options
 
-### How to customise the webpack config
+### How to customise the Webpack config
 
-`@deloitte-digital-au/webpack-config` returns a [preconfigured Webpack configuration](https://github.com/DeloitteDigitalAPAC/webpack-config/blob/master/packages/webpack-config/src/index.js). 
-You can modify this as you need. For example by adding an [entry](https://webpack.js.org/configuration/entry/) property.
+`@deloitte-digital-au/webpack-config` includes a [preconfigured base Webpack configuration](https://github.com/DeloitteDigitalAPAC/webpack-config/blob/master/packages/webpack-config/src/index.js).
 
-You can put multiple source files into one bundle:
+The `createConfig` function allows you extend this base configuration with the customisations required for your project. Behind the scenes, the extension of the base config with the custom config is achieved using [Smart Merging](https://github.com/survivejs/webpack-merge#smart-merging).
 
-```js
-config.entry = {
-    main: [
-        './src/index.js',
-        './src/style.scss',
-    ],
-};
-```
-
-Or add a new plugin
+**Here is an example of adding an [entry](https://webpack.js.org/configuration/entry/) property:**
 
 ```js
-config.plugins.push(/* NEW PLUGIN HERE*/);
+createConfig({
+    entry: {
+        main: [
+            './src/index.js',
+            './src/style.scss',
+        ],
+    },
+});
 ```
 
-### SASS
+**Adding a plugin:**
 
-Stylesheets will be extracted into standalone CSS files by default. If you would like them to be embedded into 
-the JavaScript file, use an extension of `.js.scss`.
+```js
+createConfig({
+    plugins: [/* NEW PLUGIN HERE*/],
+});
+```
+
+**Adding a loader:**
+
+When adding a loader, modules with matching rules will be merged into a single module.
+
+```js
+createConfig({
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'custom-js-loader',
+            },
+        ],
+    },
+});
+```
+
+**Accessing environment variables**
+
+The `createConfig` method will also accept a function that returns a configuration object. The function will be called with an argument containing an object with a `mode` property to indicate whether Webpack is running in `production` or `development` mode.
+
+```js
+createConfig(({ mode }) => {
+    return {
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    use: {
+                        loader: 'custom-js-loader',
+                        options: {
+                            sourceMap: (mode === 'development'),
+                        },
+                    }
+                },
+            ],
+        },
+    }
+});
+```
+
+### Stylesheets
+
+Stylesheets will be extracted into standalone CSS files, or embedded into JavaScript files, depending on how you import them. This gives you control over the delivery of your CSS. In general, it is recommended to deliver your CSS as a `.css` file, to avoid a flash of unstyled content. However, if the styles relate specifically to a JavaScript component it can make sense to deliver them in the same JavaScript file.
+
+- If a `.css` or `.scss` file is added as an entry point in `webpack.config.js` (or imported into another SCSS file that is), the CSS will be extracted to a traditional standalone CSS file.
+- If a `.css` or `.scss` file is imported into a `.js` file or a `.vue` single file component, the CSS will be embedded in the JavaScript and dynamically injected into the web page with style-loader.
+
+Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.css` will be extracted into a CSS file and `b.css` will be embedded in JavaScript, because Webpack's `issuer` rule only looks at the file which made the import, not at the original entry point. If `a` and `b` were SCSS files, they would both be extracted to CSS, because unlike **css-loader**, **sass-loader** concatenates files after resolving `@import` statements.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -334,6 +384,7 @@ the JavaScript file, use an extension of `.js.scss`.
 | [**style-loader**][14] | Allows us to embed CSS into JavaScript. This is useful for functional CSS that is specifically related to a JavaScript module, for example the `.shade-bg` rule in [DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse) |
 | [**webpack-cli**][15] | The command line interface for Webpack allows us to enter Webpack commands into our project's `package.json` file. |
 | [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading. |
+| [**webpack-merge**][17] | Provides a merge function that concatenates arrays and merges objects creating a new object. |
 
 [7]: https://www.npmjs.com/package/autoprefixer
 [8]: https://www.npmjs.com/package/babel-loader
@@ -345,13 +396,14 @@ the JavaScript file, use an extension of `.js.scss`.
 [14]: https://www.npmjs.com/package/style-loader
 [15]: https://www.npmjs.com/package/webpack-cli
 [16]: https://www.npmjs.com/package/webpack-serve
+[17]: https://www.npmjs.com/package/webpack-merge
 
 ### Vue.js packages
 
 | Name | Description |
 |------|-------------|
 | [**vue-loader**][17] | A Webpack loader which allows us to use `*.vue` files. |
-| [**vue-template-compiler**][18] 	| Used to pre-compile Vue templates into render functions |
+| [**vue-template-compiler**][18] | Used to pre-compile Vue templates into render functions |
 
 [17]: https://www.npmjs.com/package/vue-loader
 [18]: https://www.npmjs.com/package/vue-template-compiler
@@ -404,14 +456,16 @@ If you define an entry with CSS but no JavaScript, Webpack will still output a (
 along with the CSS. For example if you did this:
 
 ```js
-config.entry = {
-    main: [
-        './script.js',
-    ],
-    style: [
-        './style.scss', // Not recommended to have an entry with just CSS
-    ],
-};
+createConfig({
+    entry: {
+        main: [
+            './script.js',
+        ],
+        style: [
+            './style.scss', // Not recommended to have an entry with just CSS
+        ],
+    },
+});
 ```
 
 Then three files would be generated:
@@ -423,12 +477,14 @@ Then three files would be generated:
 To avoid this it is recommended to attach your CSS to an entry that also has JavaScript. For example:
 
 ```js
-config.entry = {
-    main: [
-        './script.js',
-        './style.scss',
-    ],
-};
+createConfig({
+    entry: {
+        main: [
+            './script.js',
+            './style.scss',
+        ],
+    },
+});
 ```
 
 This will only generate two files:

@@ -1,0 +1,7 @@
+.sass-file {
+	background: red;
+
+	&::after {
+		content: "This should be extracted into a CSS file.";
+	}
+}
