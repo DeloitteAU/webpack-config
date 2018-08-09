@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+- Added cssnano plugin to postcss-loader to optimise CSS
+- Update dependency style-loader to ^0.22.0
+- Update dependency webpack-cli to v3
+- Update dependency postcss-loader to v3
+- Update dependency css-loader to v1
+
 ## 1.0.0
 
 - Upgraded API to expose `createConfig` function (see breaking changes below)
