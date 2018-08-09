@@ -1,8 +1,9 @@
 # Changelog
 
-## Unpublished
+## 0.0.8
 
-- Updated Bable CLI to v7.0.0-beta.51
+- Update babel monorepo dependencies to v7.0.0-beta.55
+- Update dependency autoprefixer to v9
 
 ## 0.0.7
 
