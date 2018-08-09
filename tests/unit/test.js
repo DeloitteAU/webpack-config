@@ -86,7 +86,7 @@ describe('Demo build', () => {
 
 	checkBuild({
 		entryPath: path.join(__dirname, '../../packages/demo/dist-custom-dir/main.css'),
-		entryShouldContain: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:gray}', '.scss-scss-scss', '.plain-css-file', '.css-css', '-ms-flex-positive'],
+		entryShouldContain: ['background:red', 'text-decoration', ':-ms-input-placeholder{color:#000}', '.scss-scss-scss', '.plain-css-file', '.css-css', '-ms-flex-positive'],
 		entryShouldNotContain: ['Here is some CSS in JS', 'Here is some SCSS in JS', '.js-scss-scss'],
 	});
 
