@@ -1,6 +1,7 @@
 const argv = require('yargs').argv;
-const autoprefixer = require('autoprefixer')();
+const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -97,7 +98,6 @@ const baseConfig = {
 						loader: 'css-loader',
 						options: {
 							sourceMap: (mode === 'development'),
-							minimize: (mode === 'production'),
 							url: false,
 							importLoaders: 1,
 						},
@@ -107,8 +107,11 @@ const baseConfig = {
 						loader: 'postcss-loader',
 						options: {
 							sourceMap: (mode === 'development'),
-							plugins: () => [
-								autoprefixer,
+							plugins: (mode === 'production') ? [
+								autoprefixer(),
+								cssnano(),
+							] : [
+								autoprefixer(),
 							],
 						},
 					},
