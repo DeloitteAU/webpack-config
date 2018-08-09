@@ -49,6 +49,11 @@ module.exports = createConfig({
 
 The module rule matching files with an extension of `.js.scss` has been removed. If you would like your CSS to be embedded into a JavaScript file and served with `style-loader`, simply `import` it into a JavaScript file. If you would like your CSS to be extracted to a CSS file, add it to an entry point or `@import` it into another CSS / SCSS file.
 
+## 0.0.8
+
+- Update babel monorepo dependencies to v7.0.0-beta.55
+- Update dependency autoprefixer to v9
+
 ## 0.0.7
 
 - Fixed missing `'@babel/runtime/regenerator'` issue
