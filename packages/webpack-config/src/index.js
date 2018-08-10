@@ -162,10 +162,10 @@ if (process.env.WEBPACK_SERVE) {
 
 		hot: true,
 
-		dev: {
+		devMiddleware: {
 			get publicPath() { return baseConfig.output.publicPath; },
 			set publicPath(val) {
-				throw new Error('serve.dev is immutable. Please modify "output.publicPath" instead.');
+				throw new Error('serve.devMiddleware.publicPath is immutable. Please modify "output.publicPath" instead.');
 			},
 		},
 	};
