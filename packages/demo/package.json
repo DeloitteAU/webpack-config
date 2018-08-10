@@ -20,6 +20,6 @@
   },
   "version": "1.0.1",
   "dependencies": {
-    "@babel/polyfill": "7.0.0-beta.55"
+    "@babel/polyfill": "7.0.0-rc.1"
   }
 }
