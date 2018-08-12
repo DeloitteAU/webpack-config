@@ -9,7 +9,7 @@ module.exports = function() {
 					modules: false,
 					// replaces the statement import "@babel/polyfill" or require("@babel/polyfill")
 					// with individual requires for @babel/polyfill based on browser environment.
-					useBuiltIns: 'entry',
+					useBuiltIns: 'usage',
 				},
 			],
 		],
