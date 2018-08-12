@@ -100,7 +100,7 @@ describe('Demo build', () => {
 	});
 
 	describe('Webpack compilation stats', () => {
-		const compilationStatsPath = path.join(__dirname, '../../packages/demo/compilation-stats.json');
+		const compilationStatsPath = path.join(__dirname, '../../packages/demo/dist-custom-dir/reports/compilation-stats.json');
 
 		it('should be generated', done => {
 			fs.access(compilationStatsPath, fs.constants.R_OK, err => {
@@ -236,7 +236,7 @@ describe('Vue.js demo build', () => {
 	});
 
 	describe('Webpack compilation stats', () => {
-		const compilationStatsPath = path.join(__dirname, '../../packages/demo-vuejs/compilation-stats.json');
+		const compilationStatsPath = path.join(__dirname, '../../packages/demo-vuejs/dist/reports/compilation-stats.json');
 
 		it('should be generated', done => {
 			fs.access(compilationStatsPath, fs.constants.R_OK, err => {

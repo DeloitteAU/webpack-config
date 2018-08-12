@@ -2,7 +2,7 @@
   "name": "demo-react",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --nobranding",
     "start": "webpack-serve --config webpack.config.js --open --port 8085"
   },
   "browserslist": [
