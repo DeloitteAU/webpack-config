@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const dd = require('./dd.js');
 
 let mode = 'production';
@@ -185,6 +186,15 @@ if (process.env.WEBPACK_SERVE) {
 		set root(val) {
 			// CleanWebpackPlugin root is linked to output.path and cannot be modified
 		},
+	}));
+
+	// Generate a report on the bundle
+	baseConfig.plugins.push(new BundleAnalyzerPlugin({
+		analyzerMode: 'static',
+		reportFilename: 'reports/webpack-report.html',
+		openAnalyzer: false,
+		generateStatsFile: true,
+		statsFilename: 'reports/compilation-stats.json',
 	}));
 }
 
