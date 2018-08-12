@@ -247,6 +247,7 @@ Runs a local development server, rebuilds bundles when the source files change, 
 Builds the app for production to the dist folder.
 It correctly bundles in production mode and optimizes the build for the best performance.
 You may wish to create a variation of this script with `--mode development` to include source maps in the bundle.
+You can view a visualisation of the size of the Webpack output files in an interactive treemap at `dist/reports/webpack-report.html`.
 
 ### `npm run watch`
 
@@ -385,6 +386,7 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 | [**webpack-cli**][15] | The command line interface for Webpack allows us to enter Webpack commands into our project's `package.json` file. |
 | [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading. |
 | [**webpack-merge**][17] | Provides a merge function that concatenates arrays and merges objects creating a new object. |
+| [**webpack-bundle-analyzer**][18] | Provides an interface to visualize the size of Webpack output files in an interactive treemap. |
 
 [7]: https://www.npmjs.com/package/autoprefixer
 [8]: https://www.npmjs.com/package/babel-loader
@@ -397,6 +399,7 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 [15]: https://www.npmjs.com/package/webpack-cli
 [16]: https://www.npmjs.com/package/webpack-serve
 [17]: https://www.npmjs.com/package/webpack-merge
+[18]: https://www.npmjs.com/package/webpack-bundle-analyzer
 
 ### Vue.js packages
 

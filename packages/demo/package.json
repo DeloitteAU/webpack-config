@@ -18,5 +18,8 @@
     "@deloitte-digital-au/babel-preset-app": "^1.0.0",
     "@deloitte-digital-au/webpack-config": "^1.0.1"
   },
-  "version": "1.0.1"
+  "version": "1.0.1",
+  "dependencies": {
+    "@babel/polyfill": "7.0.0-beta.55"
+  }
 }

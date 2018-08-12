@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Installed webpack-bundle-analyzer
+- Changed `@babel/preset-env` preset configuration to import polyfills based on usage. Babel will add a specific import for each polyfill into each file if the file uses an API that requires a polyfill in the supported environments.
+
 ## 1.0.1
 
 - Added cssnano plugin to postcss-loader to optimise CSS
