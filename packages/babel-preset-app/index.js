@@ -44,7 +44,6 @@ module.exports = function() {
 				require('@babel/plugin-transform-runtime').default,
 				{
 					helpers: false,
-					polyfill: false,
 					regenerator: true,
 				},
 			],
