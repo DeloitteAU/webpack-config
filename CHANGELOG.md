@@ -1,17 +1,19 @@
 # Changelog
 
-## Unreleased
+## 1.1.0
 
-- Installed webpack-bundle-analyzer
+- Installed `webpack-bundle-analyzer`
 - Changed `@babel/preset-env` preset configuration to import polyfills based on usage. Babel will add a specific import for each polyfill into each file if the file uses an API that requires a polyfill in the supported environments.
+- Update dependency `webpack-serve` to `v2` (note: the `dev` option in webpack-serve has been renamed to `devMiddleware`)
+- Updated `babel` monorepo to `v7.0.0-rc.1`
 
 ## 1.0.1
 
-- Added cssnano plugin to postcss-loader to optimise CSS
-- Update dependency style-loader to ^0.22.0
-- Update dependency webpack-cli to v3
-- Update dependency postcss-loader to v3
-- Update dependency css-loader to v1
+- Added `cssnano` plugin to `postcss-loader` to optimise CSS
+- Update dependency `style-loader` to `^0.22.0`
+- Update dependency `webpack-cli` to `v3`
+- Update dependency `postcss-loader` to `v3`
+- Update dependency `css-loader` to `v1`
 
 ## 1.0.0
 
@@ -20,9 +22,9 @@
 - Added loaders for CSS files (previously only SCSS files were supported)
 - Improved unit tests for `build`
 - Added functional tests for `watch`
-- Updated dependency vue-loader to v15
-- Update babel monorepo dependencies to v7.0.0-beta.55
-- Update dependency autoprefixer to v9
+- Updated dependency `vue-loader` to `v15`
+- Update babel monorepo dependencies to `v7.0.0-beta.55`
+- Update dependency `autoprefixer` to `v9`
 
 ### Breaking Changes
 

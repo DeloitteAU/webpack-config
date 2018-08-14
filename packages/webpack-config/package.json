@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/webpack-config",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects",
   "main": "src/index.js",
   "repository": {
@@ -10,7 +10,7 @@
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@deloitte-digital-au/babel-preset-app": "^1.0.0",
+    "@deloitte-digital-au/babel-preset-app": "^1.1.0",
     "@deloitte-digital-au/eslint-config": "^3.4.0",
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
     "autoprefixer": "^9.0.0",
