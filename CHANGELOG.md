@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- Update `babel` monorepo to `v7.0.0`
+- Update dependency `style-loader` to `^0.23.0`
+
 ## 1.1.0
 
 - Installed `webpack-bundle-analyzer`

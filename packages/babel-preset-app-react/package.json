@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/babel-preset-app-react",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Babel Preset for Deloitte Digital React Projects",
   "main": "index.js",
   "repository": {
@@ -25,7 +25,7 @@
   "dependencies": {
     "@babel/core": "7.0.0",
     "@babel/preset-react": "7.0.0",
-    "@deloitte-digital-au/babel-preset-app": "^1.1.0",
+    "@deloitte-digital-au/babel-preset-app": "^1.2.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.15"
   }
 }
