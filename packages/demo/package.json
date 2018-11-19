@@ -15,10 +15,10 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@deloitte-digital-au/babel-preset-app": "^1.2.0",
-    "@deloitte-digital-au/webpack-config": "^1.2.0"
+    "@deloitte-digital-au/babel-preset-app": "^1.3.0",
+    "@deloitte-digital-au/webpack-config": "^1.3.0"
   },
-  "version": "1.2.0",
+  "version": "1.3.0",
   "dependencies": {
     "@babel/polyfill": "7.0.0"
   }

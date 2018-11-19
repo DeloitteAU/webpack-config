@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0
+
+- Update `babel` monorepo to `v7.1.6`
+- Update dependency `babel-plugin-transform-react-remove-prop-types` to `v0.4.20`
+- Update dependency `webpack-bundle-analyzer` to `v3`
+- Update dependency `wait-on` to `v3`
+
 ## 1.2.0
 
 - Update `babel` monorepo to `v7.0.0`
