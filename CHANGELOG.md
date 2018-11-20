@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Removed dependency `clean-webpack-plugin`, as the plugin does not read from the standard output path configuration.
+
 ## 1.3.0
 
 - Update `babel` monorepo to `v7.1.6`

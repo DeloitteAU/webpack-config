@@ -1,6 +1,5 @@
 const argv = require('yargs').argv;
 const autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -171,23 +170,6 @@ if (process.env.WEBPACK_SERVE) {
 		},
 	};
 } else {
-	// Clean the output directory before a build
-	baseConfig.plugins.push(new CleanWebpackPlugin(['*'], {
-		get root() {
-			// CleanWebpackPlugin does not provide an option for reading from output.path
-			const pathToDelete = baseConfig.output.path;
-			const root = process.cwd();
-			if (pathToDelete.indexOf(root) === -1) {
-				throw 'output.path must be inside the project root';
-			} else {
-				return pathToDelete;
-			}
-		},
-		set root(val) {
-			// CleanWebpackPlugin root is linked to output.path and cannot be modified
-		},
-	}));
-
 	// Generate a report on the bundle
 	baseConfig.plugins.push(new BundleAnalyzerPlugin({
 		analyzerMode: 'static',

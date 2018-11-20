@@ -378,7 +378,6 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 | [**autoprefixer**][7] | A PostCSS plugin for adding browser prefixes to CSS. |
 | [**babel-loader**][8] | The integration between Babel and Webpack. |
 | [**babel-preset-env**][9] | Presets specify the output format for Babel. This preset allows us to generate ES5 output that will run on whichever browsers we specify. To specify which browsers are supported, add a `browserslist` entry to your project's `package.json` file. |
-| [**clean-webpack-plugin**][10] | Cleans out the `dist` folder before starting a new build. |
 | [**css-loader**][11] | A Webpack loader which allows us to load CSS files with `@import` and `url()`. |
 | [**mini-css-extract-plugin**][12] | Webpack's architecture is built around JavaScript. Support has been added for CSS, however it results in CSS being embedded inside JavaScript files. This package allows us to export CSS into standalone files. |
 | [**sass-loader**][13] | The integration between Sass and Webpack. |
@@ -391,7 +390,6 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 [7]: https://www.npmjs.com/package/autoprefixer
 [8]: https://www.npmjs.com/package/babel-loader
 [9]: https://www.npmjs.com/package/babel-preset-env
-[10]: https://www.npmjs.com/package/clean-webpack-plugin
 [11]: https://www.npmjs.com/package/css-loader
 [12]: https://www.npmjs.com/package/mini-css-extract-plugin
 [13]: https://www.npmjs.com/package/sass-loader

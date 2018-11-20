@@ -15,7 +15,6 @@
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
     "autoprefixer": "^9.0.0",
     "babel-loader": "^8.0.0-beta",
-    "clean-webpack-plugin": "^0.1.19",
     "colors": "^1.2.1",
     "css-loader": "^1.0.0",
     "cssnano": "^4.0.5",
