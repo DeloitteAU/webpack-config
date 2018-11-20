@@ -1,5 +1,8 @@
 const { createConfig } = require('@deloitte-digital-au/webpack-config');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
+
+const outputPath = path.resolve(__dirname, 'dist-custom-dir');
 
 module.exports = createConfig({
 	entry: {
@@ -10,6 +13,9 @@ module.exports = createConfig({
 		],
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist-custom-dir'),
+		path: outputPath,
 	},
+	plugins: [
+		new CleanWebpackPlugin(outputPath),
+	],
 });
