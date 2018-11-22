@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/webpack-config",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects",
   "main": "src/index.js",
   "repository": {

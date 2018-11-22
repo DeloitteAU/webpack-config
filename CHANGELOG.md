@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.4.0
 
 - Removed dependency `clean-webpack-plugin`, as the plugin does not read from the standard output path configuration.
 

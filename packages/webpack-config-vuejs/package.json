@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/webpack-config-vuejs",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects using Vue.js",
   "main": "src/index.js",
   "repository": {
@@ -11,7 +11,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@deloitte-digital-au/babel-preset-app": "^1.3.0",
-    "@deloitte-digital-au/webpack-config": "^1.3.0",
+    "@deloitte-digital-au/webpack-config": "^1.4.0",
     "vue-loader": "^15.0.0",
     "vue-template-compiler": "^2.5.16"
   },
