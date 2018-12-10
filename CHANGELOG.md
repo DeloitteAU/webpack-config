@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0
+
+- Update `babel` monorepo to `v7.2.0`
+- Update dependency `babel-plugin-transform-react-remove-prop-types` to `v0.4.21`
+- Update dependency `css-loader` to `v2`
+- Update dependency `mini-css-extract-plugin` to `^0.5.0`
+
 ## 1.4.0
 
 - Removed dependency `clean-webpack-plugin`, as the plugin does not read from the standard output path configuration.
