@@ -31,7 +31,7 @@
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
     "cypress": "^3.0.2",
     "lerna": "^2.11.0",
-    "mocha": "^5.1.1",
+    "mocha": "^6.0.0",
     "npm-run-all": "^4.1.3",
     "rimraf": "^2.6.2",
     "wait-on": "^3.0.0"
