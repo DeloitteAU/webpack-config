@@ -382,6 +382,8 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 | [**mini-css-extract-plugin**][12] | Webpack's architecture is built around JavaScript. Support has been added for CSS, however it results in CSS being embedded inside JavaScript files. This package allows us to export CSS into standalone files. |
 | [**sass-loader**][13] | The integration between Sass and Webpack. |
 | [**style-loader**][14] | Allows us to embed CSS into JavaScript. This is useful for functional CSS that is specifically related to a JavaScript module, for example the `.shade-bg` rule in [DD Shade](https://hub.deloittedigital.com.au/stash/projects/FED/repos/dd-shade/browse) |
+| [**file-loader**][19] | The file-loader resolves import/require() on a file into a url and emits the file into the output directory. |
+| [**url-loader**][20] | A loader for webpack which transforms files smaller than 10000 bytes into base64 URIs. |
 | [**webpack-cli**][15] | The command line interface for Webpack allows us to enter Webpack commands into our project's `package.json` file. |
 | [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading. |
 | [**webpack-merge**][17] | Provides a merge function that concatenates arrays and merges objects creating a new object. |
@@ -398,6 +400,8 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 [16]: https://www.npmjs.com/package/webpack-serve
 [17]: https://www.npmjs.com/package/webpack-merge
 [18]: https://www.npmjs.com/package/webpack-bundle-analyzer
+[19]: https://github.com/webpack-contrib/file-loader
+[20]: https://github.com/webpack-contrib/url-loader
 
 ### Vue.js packages
 
