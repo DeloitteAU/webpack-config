@@ -1,5 +1,7 @@
 # Changelog
 
+- Added File loader #26
+
 ## 1.5.0
 
 - Update `babel` monorepo to `v7.2.0`
