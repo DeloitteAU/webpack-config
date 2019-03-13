@@ -157,8 +157,7 @@ const baseConfig = {
 			},
 
 			{
-				test: /\.(svg|png|jpg|ico|gif|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-				exclude: [/\.(js|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+				test: /\.(svg|png|jpg|ico|gif|woff|woff2|ttf|eot|doc|pdf|zip|wav|avi|txt)(\?v=\d+\.\d+\.\d+)?$/,
 				oneOf: [
 					// "url" loader works like "file" loader except that it embeds assets
 					// smaller than 10000 bytes
