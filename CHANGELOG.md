@@ -1,5 +1,10 @@
 # Changelog
 
+## UNPUBLISHED
+
+- CSS loader now uses default for `url` option #79
+- Fixes issue when running in testing environments #29
+
 ## 1.5.0
 
 - Update `babel` monorepo to `v7.2.0`
