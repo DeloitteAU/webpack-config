@@ -1,6 +1,7 @@
 # Changelog
 
 - Added File loader #26
+- Disabled source maps by default for perfomance benifits
 
 ## 1.5.0
 

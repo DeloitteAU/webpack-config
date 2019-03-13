@@ -339,6 +339,16 @@ createConfig(({ mode }) => {
     }
 });
 ```
+### Generate Source Maps
+
+Source maps are disabled for the performance benifits. Should you wish to build source maps you will need to set the `GENERATE_SOURCEMAP`
+environment variable to `true`.
+
+for example
+
+```
+GENERATE_SOURCEMAP=true webpack
+```
 
 ### Stylesheets
 

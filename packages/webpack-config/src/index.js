@@ -18,7 +18,7 @@ if (process.env.NODE_ENV) {
 }
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
 
 const isDevelopment = mode === 'development';
 const isProduction = mode === 'production';
@@ -120,7 +120,7 @@ const baseConfig = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: isProduction && shouldUseSourceMap,
+							sourceMap: shouldUseSourceMap,
 							url: false,
 							importLoaders: 1,
 						},
@@ -129,7 +129,7 @@ const baseConfig = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							sourceMap: isProduction && shouldUseSourceMap,
+							sourceMap: shouldUseSourceMap,
 							plugins: (mode === 'production') ? [
 								autoprefixer(),
 								cssnano(),
@@ -148,7 +148,7 @@ const baseConfig = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: isProduction && shouldUseSourceMap,
+							sourceMap: shouldUseSourceMap,
 							// Set scss debug flag
 							data: `$IS_DEBUG: ${(mode === 'development')};`,
 						},
