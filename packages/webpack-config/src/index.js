@@ -98,7 +98,6 @@ const baseConfig = {
 						loader: 'css-loader',
 						options: {
 							sourceMap: (mode === 'development'),
-							url: false,
 							importLoaders: 1,
 						},
 					},
