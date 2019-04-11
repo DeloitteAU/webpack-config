@@ -1,11 +1,12 @@
 # Changelog
 
-## UNPUBLISHED
+## 2.0.0
 
 - Added File loader #26
 - Disabled source maps by default for perfomance benifits
 - CSS loader now uses default for `url` option #79
 - Fixes issue when running in testing environments #29
+- Upgraded mini-css-extract-lugin ^0.5.0 -> ^0.6.0
 
 ## 1.5.0
 
