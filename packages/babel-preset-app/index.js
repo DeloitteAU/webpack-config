@@ -1,8 +1,26 @@
 module.exports = function() {
+
+	const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development';
+	const isTest = env === 'test';
+	const isDevelopment = env === 'development';
+	const isProduction = env === 'production';
+
+	if (!isTest && !isDevelopment && !isProduction) {
+		throw new Error(`Please specify BABEL_ENV or NODE_ENV to either "test", "development" or "production". Received "${JSON.stringify(env)}".`);
+	}
+
 	return {
 
 		presets: [
-			[
+			isTest && [
+				require('@babel/preset-env').default,
+				{
+					target: {
+						node: 'current',
+					},
+				},
+			],
+			!isTest && [
 				require('@babel/preset-env').default,
 				{
 					// Lets not transform modules to commons js
@@ -12,7 +30,7 @@ module.exports = function() {
 					useBuiltIns: 'usage',
 				},
 			],
-		],
+		].filter(Boolean),
 
 		plugins: [
 			// destrucuring plugin is required until https://github.com/babel/babel/issues/7215 is resolved
@@ -59,6 +77,10 @@ module.exports = function() {
 					async: false,
 				},
 			],
-		],
+
+			isTest &&
+				// Transform dynamic import to require
+				require('babel-plugin-dynamic-import-node'),
+		].filter(Boolean),
 	};
 };
