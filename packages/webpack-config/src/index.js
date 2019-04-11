@@ -163,7 +163,7 @@ const baseConfig = {
 					// smaller than 10000 bytes
 					{
 						test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-						loader: require.resolve('url-loader'),
+						loader: 'url-loader',
 						options: {
 							limit: 10000,
 							name: 'statics/[name].[hash:8].[ext]',
