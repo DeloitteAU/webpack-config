@@ -80,7 +80,7 @@ const baseConfig = {
 
 			// JavaScript - babel-loader transpiles our javascript to ensure browser compatability
 			{
-				test: /\.(js|ts)$/,
+				test: /\.(js)$/,
 				exclude: /node_modules/,
 				use: [
 					{
