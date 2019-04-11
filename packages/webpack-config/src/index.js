@@ -17,6 +17,12 @@ if (process.env.NODE_ENV) {
 	mode = 'development';
 }
 
+// Source maps are resource heavy and can cause out of memory issue for large source files.
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
+
+const isDevelopment = mode === 'development';
+const isProduction = mode === 'production';
+
 if (!argv.nobranding) {
 	dd();
 	console.log('Deloitte Digital Webpack Config');
@@ -72,6 +78,23 @@ const baseConfig = {
 				parser: { requireEnsure: false },
 			},
 
+			// JavaScript - babel-loader transpiles our javascript to ensure browser compatability
+			{
+				test: /\.(js)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							// This is a feature of `babel-loader` for webpack (not Babel itself).
+							// It enables caching results in ./node_modules/.cache/babel-loader/
+							// directory for faster rebuilds.
+							cacheDirectory: true,
+						},
+					},
+				],
+			},
+
 			// Custom CSS loaders which apply conditionally
 			// If a stylesheet is imported into JavaScript, leave the CSS embedded in the JS and dynamically inject into the web page
 			// Otherwise, extract the CSS into its own file
@@ -97,7 +120,8 @@ const baseConfig = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: (mode === 'development'),
+							sourceMap: shouldUseSourceMap,
+							url: false,
 							importLoaders: 1,
 						},
 					},
@@ -105,7 +129,7 @@ const baseConfig = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							sourceMap: (mode === 'development'),
+							sourceMap: shouldUseSourceMap,
 							plugins: (mode === 'production') ? [
 								autoprefixer(),
 								cssnano(),
@@ -124,7 +148,7 @@ const baseConfig = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: (mode === 'development'),
+							sourceMap: shouldUseSourceMap,
 							// Set scss debug flag
 							data: `$IS_DEBUG: ${(mode === 'development')};`,
 						},
@@ -132,12 +156,30 @@ const baseConfig = {
 				],
 			},
 
-			// JavaScript - babel-loader transpiles our javascript to ensure browser compatability
 			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: ['babel-loader'],
+				test: /\.(svg|png|jpg|ico|gif|woff|woff2|ttf|eot|doc|pdf|zip|wav|avi|txt)(\?v=\d+\.\d+\.\d+)?$/,
+				oneOf: [
+					// "url" loader works like "file" loader except that it embeds assets
+					// smaller than 10000 bytes
+					{
+						test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							name: 'statics/[name].[hash:8].[ext]',
+						},
+					},
+
+					// "file" loader makes sure those assets get served
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'statics/[name].[hash:8].[ext]',
+						},
+					},
+				],
 			},
+
 		],
 	},
 

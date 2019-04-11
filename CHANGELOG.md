@@ -2,6 +2,8 @@
 
 ## UNPUBLISHED
 
+- Added File loader #26
+- Disabled source maps by default for perfomance benifits
 - CSS loader now uses default for `url` option #79
 - Fixes issue when running in testing environments #29
 
