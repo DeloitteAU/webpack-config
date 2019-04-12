@@ -8,8 +8,8 @@ cache:
     - ~/.cache
 sudo: false
 install:
-  - npm install && npm run bootstrap
+  - yarn install && yarn run bootstrap
 script:
   - cd ${TRAVIS_BUILD_DIR}
-  - npm run lint
-  - npm test
+  - yarn lint
+  - yarn test
