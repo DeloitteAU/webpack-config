@@ -17,7 +17,7 @@
     "test:cypress": "concurrently \"yarn test:cypress-wait\" \"yarn test:cypress-run\"",
     "test:cypress-wait": "wait-on http://localhost:8085 http://localhost:8086",
     "test:cypress-run": "cypress run",
-    "test:cypress-ci": "concurrently \"yarn start:all\" \"yarn test:cypress\" --success \"last\" --kill-others",
+    "test:cypress-ci": "concurrently --success \"first\" --kill-others \"yarn test:cypress\" \"yarn start:all\"",
     "test": "yarn test:mocha && yarn test:cypress-ci",
     "lint": "eslint ./packages --ext .js",
     "start:all": "lerna run start --scope demo-* --parallel",
