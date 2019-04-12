@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Fixed issue with babel targets in test mode
+
 ## 2.0.0
 
 - Added File loader #26

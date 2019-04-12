@@ -15,7 +15,7 @@ module.exports = function() {
 			isTest && [
 				require('@babel/preset-env').default,
 				{
-					target: {
+					targets: {
 						node: 'current',
 					},
 				},
