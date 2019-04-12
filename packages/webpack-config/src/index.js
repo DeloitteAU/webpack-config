@@ -20,9 +20,6 @@ if (process.env.NODE_ENV) {
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
 
-const isDevelopment = mode === 'development';
-const isProduction = mode === 'production';
-
 if (!argv.nobranding) {
 	dd();
 	console.log('Deloitte Digital Webpack Config');
@@ -158,18 +155,7 @@ const baseConfig = {
 
 			{
 				test: /\.(svg|png|jpg|ico|gif|woff|woff2|ttf|eot|doc|pdf|zip|wav|avi|txt)(\?v=\d+\.\d+\.\d+)?$/,
-				oneOf: [
-					// "url" loader works like "file" loader except that it embeds assets
-					// smaller than 10000 bytes
-					{
-						test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-						loader: 'url-loader',
-						options: {
-							limit: 10000,
-							name: 'statics/[name].[hash:8].[ext]',
-						},
-					},
-
+				use: [
 					// "file" loader makes sure those assets get served
 					{
 						loader: 'file-loader',

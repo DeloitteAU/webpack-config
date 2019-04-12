@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+- Removed oneOf rule from file loader
+
 ## 2.0.1
 
 - Fixed issue with babel targets in test mode
