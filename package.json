@@ -1,6 +1,9 @@
 {
   "name": "@deloitte-digital-au/webpack-config-publisher",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DeloitteDigitalAPAC/webpack-config.git"
@@ -8,14 +11,14 @@
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist",
+    "bootstrap": "lerna bootstrap",
     "clean": "lerna clean --yes",
     "test:mocha": "mocha tests/unit/*.js",
-    "test:cypress": "npm-run-all --sequential test:cypress-wait test:cypress-run",
+    "test:cypress": "concurrently \"yarn test:cypress-wait\" \"yarn test:cypress-run\"",
     "test:cypress-wait": "wait-on http://localhost:8085 http://localhost:8086",
     "test:cypress-run": "cypress run",
-    "test:cypress-ci": "npm-run-all --parallel --race start:all test:cypress",
-    "test": "npm run test:mocha && npm run test:cypress-ci",
+    "test:cypress-ci": "concurrently \"yarn start:all\" \"yarn test:cypress\" --success \"last\" --kill-others",
+    "test": "yarn test:mocha && yarn test:cypress-ci",
     "lint": "eslint ./packages --ext .js",
     "start:all": "lerna run start --scope demo-* --parallel",
     "start:demo": "lerna run start --scope demo --stream",
@@ -30,10 +33,11 @@
     "@deloitte-digital-au/eslint-config": "^3.4.0",
     "@deloitte-digital-au/stylelint-config": "^1.1.0",
     "cypress": "^3.2.0",
-    "mocha": "^6.1.2",
     "lerna": "^3.0.0",
+    "mocha": "^6.1.2",
     "npm-run-all": "^4.1.3",
     "rimraf": "^2.6.2",
-    "wait-on": "^3.0.0"
+    "wait-on": "^3.0.0",
+    "concurrently": "^4.1.0"
   }
 }
