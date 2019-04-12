@@ -11,11 +11,11 @@
   ],
   "devDependencies": {
     "@deloitte-digital-au/babel-preset-app-react": "^2.0.1",
-    "@deloitte-digital-au/webpack-config-react": "^2.0.2"
+    "@deloitte-digital-au/webpack-config-react": "^2.0.3"
   },
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
-  "version": "2.0.2"
+  "version": "2.0.3"
 }
