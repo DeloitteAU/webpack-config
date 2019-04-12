@@ -160,7 +160,7 @@ const baseConfig = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'statics/[name].[hash:8].[ext]',
+							outputPath: 'statics',
 						},
 					},
 				],

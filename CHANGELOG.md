@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3
+
+- Fixed issue with hashed files breaking in css
+
 ## 2.0.2
 
 - Removed oneOf rule from file loader
