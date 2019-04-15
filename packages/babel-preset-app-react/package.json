@@ -23,7 +23,7 @@
   "author": "Deloitte Digital AU",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@babel/core": "7.3.4",
+    "@babel/core": "7.4.3",
     "@babel/preset-react": "7.0.0",
     "@deloitte-digital-au/babel-preset-app": "^2.0.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24"
