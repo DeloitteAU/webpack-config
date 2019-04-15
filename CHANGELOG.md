@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.4
+
+- Upgraded Babel from 7.3 to 7.4
+- Fixed issue with css url loader option #79
+
 ## 2.0.3
 
 - Fixed issue with hashed files breaking in css

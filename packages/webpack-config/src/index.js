@@ -118,7 +118,7 @@ const baseConfig = {
 						loader: 'css-loader',
 						options: {
 							sourceMap: shouldUseSourceMap,
-							url: false,
+							url: true,
 							importLoaders: 1,
 						},
 					},
@@ -160,6 +160,7 @@ const baseConfig = {
 					{
 						loader: 'file-loader',
 						options: {
+							name: '[name].[ext]',
 							outputPath: 'statics',
 						},
 					},
