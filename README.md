@@ -224,7 +224,7 @@ Add `build`, `start`, `watch` and/or `lint` scripts to your project's `package.j
 ```json
 "scripts": {
   "build": "webpack --mode production",
-  "start": "webpack-serve --config webpack.config.js --open",
+  "start": "webpack-dev-server --config webpack.config.js --open",
   "watch": "webpack --mode development --watch",
   "lint": "lint:js && lint:styles",
   "lint:js": "eslint \"**/*.js\"",
@@ -395,7 +395,7 @@ Note that if you import `a.css` into `b.css`, and `b.css` into `c.js`, then `a.c
 | [**file-loader**][19] | The file-loader resolves import/require() on a file into a url and emits the file into the output directory. |
 | [**url-loader**][20] | A loader for webpack which transforms files smaller than 10000 bytes into base64 URIs. |
 | [**webpack-cli**][15] | The command line interface for Webpack allows us to enter Webpack commands into our project's `package.json` file. |
-| [**webpack-serve**][16] | A lean, modern, and flexible Webpack development server which supports live reloading. |
+| [**webpack-dev-server**][16] | Serves a webpack app. Updates the browser on changes. |
 | [**webpack-merge**][17] | Provides a merge function that concatenates arrays and merges objects creating a new object. |
 | [**webpack-bundle-analyzer**][18] | Provides an interface to visualize the size of Webpack output files in an interactive treemap. |
 

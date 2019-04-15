@@ -4,6 +4,16 @@
 
 - Upgraded Babel from 7.3 to 7.4
 - Fixed issue with css url loader option #79
+- Changed `webpack-serve` for `webpack-dev-server`
+
+### Breaking Changes
+
+Please update your "start" script to use webpack-dev-server
+
+```
+- "start": "webpack-serve --config webpack.config.js --open",
++ "start": "webpack-dev-server --config webpack.config.js --open",
+```
 
 ## 2.0.3
 

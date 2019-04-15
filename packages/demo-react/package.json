@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production --nobranding",
-    "start": "webpack-serve --config webpack.config.js --open --port 8085"
+    "start": "webpack-dev-server --config webpack.config.js --open --port 8085"
   },
   "browserslist": [
     "last 2 versions",
