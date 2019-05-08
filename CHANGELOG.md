@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.5
+
+- Webpack Analyzer plugin now only runs on production builds to speed up development #91
+- Core js has been set at v3 for Babel #90
+
 ## 2.0.4
 
 - Upgraded Babel from 7.3 to 7.4

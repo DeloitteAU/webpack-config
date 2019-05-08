@@ -183,7 +183,7 @@ const baseConfig = {
 	],
 };
 
-if (process.env.WEBPACK_SERVE) {
+if (mode === 'development') {
 	baseConfig.serve = {
 		// Silence WebpackServer's own logs since they're generally not useful.
 		logLevel: 'error',
@@ -197,7 +197,15 @@ if (process.env.WEBPACK_SERVE) {
 			},
 		},
 	};
-} else {
+
+	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
+	baseConfig.devtool = 'cheap-module-source-map';
+
+	// Add module names to factory functions so they appear in browser profiler.
+	baseConfig.plugins.push(new webpack.NamedModulesPlugin());
+}
+
+if (mode === 'production') {
 	// Generate a report on the bundle
 	baseConfig.plugins.push(new BundleAnalyzerPlugin({
 		analyzerMode: 'static',
@@ -206,14 +214,6 @@ if (process.env.WEBPACK_SERVE) {
 		generateStatsFile: true,
 		statsFilename: 'reports/compilation-stats.json',
 	}));
-}
-
-if (mode === 'development') {
-	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
-	baseConfig.devtool = 'cheap-module-source-map';
-
-	// Add module names to factory functions so they appear in browser profiler.
-	baseConfig.plugins.push(new webpack.NamedModulesPlugin());
 }
 
 const mergeConfig = (a, b) => {

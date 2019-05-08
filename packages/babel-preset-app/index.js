@@ -28,6 +28,10 @@ module.exports = function() {
 					// replaces the statement import "@babel/polyfill" or require("@babel/polyfill")
 					// with individual requires for @babel/polyfill based on browser environment.
 					useBuiltIns: 'usage',
+					// Set the corejs version we are using to avoid warnings in console
+					corejs: 3,
+					// Exclude transforms that make all code slower
+					exclude: ['transform-typeof-symbol'],
 				},
 			],
 		].filter(Boolean),
