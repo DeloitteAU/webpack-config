@@ -1,6 +1,6 @@
 {
   "name": "@deloitte-digital-au/webpack-config-react",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Upgradeable collection of Webpack plugins, loaders and configuration for Deloitte Digital projects using React",
   "main": "index.js",
   "repository": {
@@ -10,8 +10,8 @@
   "author": "Deloitte Digital Australia (https://deloittedigital.com.au)",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@deloitte-digital-au/babel-preset-app-react": "^2.0.4",
-    "@deloitte-digital-au/webpack-config": "^2.0.4"
+    "@deloitte-digital-au/babel-preset-app-react": "^2.0.5",
+    "@deloitte-digital-au/webpack-config": "^2.0.5"
   },
   "publishConfig": {
     "access": "public"
