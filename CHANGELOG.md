@@ -3,7 +3,7 @@
 ## 2.0.5
 
 - Webpack Analyzer plugin now only runs on production builds to speed up development #91
-- Core js has been set at v3 for Babel #90
+- Core js has been explicitly set at v2 for Babel to stop console warnings #90
 
 ## 2.0.4
 
