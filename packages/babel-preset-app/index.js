@@ -63,8 +63,13 @@ module.exports = function() {
 			[
 				require('@babel/plugin-transform-runtime').default,
 				{
+					corejs: false,
 					helpers: false,
 					regenerator: true,
+					// https://babeljs.io/docs/en/babel-plugin-transform-runtime#useesmodules
+					// We should turn this on once the lowest version of Node LTS
+					// supports ES Modules.
+					useESModules: false,
 				},
 			],
 
@@ -83,6 +88,12 @@ module.exports = function() {
 			isTest &&
 				// Transform dynamic import to require
 				require('babel-plugin-dynamic-import-node'),
+
+			// This fixes a var duplicate issue with variable hoisting
+			// We should remove this once this issue is resolved
+			// https://github.com/babel/babel/issues/8525
+			isTest &&
+				require('@babel/plugin-transform-block-scoping'),
 		].filter(Boolean),
 	};
 };

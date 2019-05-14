@@ -209,10 +209,8 @@ if (mode === 'production') {
 	// Generate a report on the bundle
 	baseConfig.plugins.push(new BundleAnalyzerPlugin({
 		analyzerMode: 'static',
-		reportFilename: 'reports/webpack-report.html',
+		reportFilename: process.env.REPORT_PATH || 'reports/webpack-report.html',
 		openAnalyzer: false,
-		generateStatsFile: true,
-		statsFilename: 'reports/compilation-stats.json',
 	}));
 }
 

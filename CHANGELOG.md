@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.6
+
+- Fixed issue with 'Duplicate declaration' babel error with nested async functions when running tests
+
 ## 2.0.5
 
 - Webpack Analyzer plugin now only runs on production builds to speed up development #91
