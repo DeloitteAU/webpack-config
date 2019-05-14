@@ -3,6 +3,7 @@
 ## 2.0.6
 
 - Fixed issue with 'Duplicate declaration' babel error with nested async functions when running tests
+- Disabled webpack stats report by default
 
 ## 2.0.5
 
