@@ -15,9 +15,9 @@
     "IE 11"
   ],
   "devDependencies": {
-    "@deloitte-digital-au/babel-preset-app": "^2.0.6",
-    "@deloitte-digital-au/webpack-config": "^2.0.6",
+    "@deloitte-digital-au/babel-preset-app": "^3.0.0",
+    "@deloitte-digital-au/webpack-config": "^3.0.0",
     "clean-webpack-plugin": "^1.0.0"
   },
-  "version": "2.0.6"
+  "version": "3.0.0"
 }
