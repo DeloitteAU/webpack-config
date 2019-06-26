@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.0
+
+- Upgraded to core js 3
+
+🚨 @babel/polyfill has been deprecated in favor of directly including core-js/stable (to polyfill ECMAScript features)
+and regenerator-runtime/runtime (needed to use transpiled generator functions). These should be installed at the project level.
+
+```js
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+```
+
 ## 2.0.6
 
 - Fixed issue with 'Duplicate declaration' babel error with nested async functions when running tests

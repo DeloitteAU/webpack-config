@@ -25,11 +25,11 @@ module.exports = function() {
 				{
 					// Lets not transform modules to commons js
 					modules: false,
-					// replaces the statement import "@babel/polyfill" or require("@babel/polyfill")
-					// with individual requires for @babel/polyfill based on browser environment.
+					// replaces the statement import "core-js" or require("core-js")
+					// with individual requires for core-js based on browser environment.
 					useBuiltIns: 'usage',
 					// Set the corejs version we are using to avoid warnings in console
-					corejs: 2,
+					corejs: 3,
 				},
 			],
 		].filter(Boolean),
