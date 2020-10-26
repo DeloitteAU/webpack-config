@@ -13,7 +13,7 @@
     "@deloitte-digital-au/babel-preset-app": "^3.0.0",
     "@deloitte-digital-au/eslint-config": "^3.4.0",
     "@deloitte-digital-au/stylelint-config": "^2.0.0",
-    "autoprefixer": "^9.0.0",
+    "autoprefixer": "^10.0.0",
     "babel-loader": "^8.0.0-beta",
     "colors": "^1.2.1",
     "css-loader": "^2.0.0",
