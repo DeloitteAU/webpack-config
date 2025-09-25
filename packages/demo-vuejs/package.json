@@ -19,7 +19,7 @@
     "@deloitte-digital-au/webpack-config-vuejs": "^3.0.0"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^3.0.0"
   },
   "version": "3.0.0"
 }
